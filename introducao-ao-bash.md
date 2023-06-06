@@ -92,75 +92,75 @@ Você pode querer mais informações do que apenas uma lista de ficheiros. Você
 
 {% include figure.html filename="man-ls.png" caption="A página Manual para o comando LS" %}
 
-Here, you see a listing of the name of the command, the way that you can format this command and what it does. **Many of these will not make sense at this stage, but don't worry; over time you will become more familiar with them.** You can explore this page in a variety of ways: the spacebar moves down a page, or you can arrow down and arrow up throughout the document.
+Aqui, você vê uma lista dos nomes do comando, as possibilidades de formatação do comando e o que ele faz.   **Muitos deles não farão sentido agora, mas não se preocupe; com o tempo você se ficará mais familiarizado com eles.** Você pode explorar essa página de várias formas: a barra de espaço move uma página abaixo, ou você pode usar as setas para cima e para baixo por todo documento.
 
-To leave the manual page, press
+Para sair da página do manual, aperte
 
 `q`
 
-and you will be brought back to the command line where you were before entering the manual page.
+e você será trazido de volta para a linha de comando onde você estava antes de entrar na página do manual.
 
-Try playing around with the `man` page for the other command you have learned so far, `pwd`.
+Tente explorar a página `man` para o outro comando que aprendeu até agora, `pwd`.
 
-Windows users can use the `help` command, though this command has fewer features than `man` on OS X/Linux. Enter `help` to see the help available, and `help pwd` for an example of the command's output.
+Usuários de Windows podem utilizar o comando `help`, embora esse comando tenha menos recursos do que o `man` no SO X/Linux. Digite `help` para ver a ajuda disponível, e `help pwd` para obter um exemplo da saída do comando.
 
-Let's try using a few of those options you saw in the `man` page for ls. Perhaps you only want to see TXT files that are in our home directory. Type
+Vamos tentar utilizar algumas da opções que você viu na página `man` para ls. Talvez você queira ver apenas os ficheiros TXT que estão no seu diretório inicial. Digite
 
 `ls *.txt`
 
-which returns a list of text files, if you have any in your home directory (you may not, and that is OK as well). The \* command is a **wildcard** — it stands for 'anything.' So, in this case, you're indicating that anything that fits the pattern:
+o que retorna uma lista de ficheiros de texto, se você tiver algum no seu diretório inicial (talvez você não tenha, e tudo bem também). O comando \* é um **wildcard** — significa 'qualquer coisa.' Portanto, nesse caso, você está indicando que qualquer coisa que atenda o padrão:
 
-[anything.txt]
+[qualquer_coisa.txt]
 
-will be displayed. Try out different combinations. If, for example, you had several files in the format `1-Canadian.txt`, `2-Canadian.txt`, and so forth, the command `ls *-Canadian.txt` would display them all but exclude all other files (those that do not match the pattern).
+será mostrada. Tente diferentes combinações. Se, por exemplo, você possui vários ficheiros no formato `1-Canadian.txt`, `2-Canadian.txt`, e assim por diante, o comando `ls *-Canadian.txt` irá mostrar todos eles mas escluirá todos os outros ficheiros (aqueles que não correspondem ao padrão).
 
-Say you want more information. In that long `man` page, you saw an option that might be useful:
+Digamos que você quer mais informações. Naquela longa página `man`, você viu uma opção que pode ser útil:
 
->     -l      (The lowercase letter ``ell''.)  List in long format.  (See below.)  If
->             the output is to a terminal, a total sum for all the file sizes is out-
->             put on a line before the long listing.
+>     -l      (a letra "ele" minúscula.)  List in long format.  (See below.)  If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
 
-So, if you type
+Logo, se você digitar
 
 `ls -l`
 
-the computer returns a long list of files that contains information similar to what you'd find in your finder or explorer: the size of the files in bites, the date it was created or last modified, and the file name. However, this can be a bit confusing: you see that a file test.html is '6020' bits large. In commonplace language, you are more used to units of measurement like bytes, kilobytes, megabytes, and gigabytes.
+O computador retornará uma lista onga de ficheiros que contém informações similares ao que você encontraria no seu explorador de ficheiros: o tamanho do ficheiro em bites, a data de sua criação ou última modificação, e o nome do ficheiro. Entretanto, isso pode ser um pouco confuso: você vê que um ficheiro test.html possui '620' bites. Em linguagem comum, você está mais acostumado a unidades de medidade como bytes, kilobytes, magabytes e gigabytes.
 
-Luckily, there's another flag:
+Felizmente, existe outra *flag*:
 
 >     -h      When used with the -l option, use unit suffixes: Byte, Kilobyte,
 >             Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number
 >             of digits to three or less using base 2 for sizes.
 
-When you want to use two flags, you can just run them together. So, by typing
+Quando você quer usar duas *flags*, você pode executá-las junto. Então, ao digitar
 
 `ls -lh`
 
-you receive output in a human-readable format; you learn that that 6020 bits is also 5.9KB, that another file is 1 megabyte, and so forth.
+você receberá um resultado em um formato legível para humanos; você descobre que aqueles 6020 bits também é 5.9KB, que outro ficheiro tem 1 megabyte, e assim por diante.
 
-These options are *very* important. In other lessons within the *Programming Historian*, you'll see them. [Wget](/lessons/applied-archival-downloading-with-wget), [MALLET](/lessons/topic-modeling-and-mallet), and [Pandoc](/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown) all use the same syntax. Luckily, you do not need to memorize syntax; instead, keep these lessons handy so you can take a quick peek if you need to tweak something. These lessons can all be done in any order.
+Essas opções são *muito* importantes. Em outras lições do *Programming Historian*, você as encontrará. [Wget](/lessons/applied-archival-downloading-with-wget), [MALLET](/lessons/topic-modeling-and-mallet), e [Pandoc](pt/licoes/autoria-sustentavel-texto-simples-pandoc-markdown) usam a mesma sintaxe. Felizmente, você não precisa memorizar a sintaxe; em vez disso, mantenha essas lições à mão para que você possa dar uma olhada rápida se precisar ajustar alguma coisa. Essas lições podem ser feitas em qualquer ordem.
 
-You've now spent a great deal of time in your home directory. Let's go somewhere else. You can do that through the `cd` or Change Directory command.
+Agora você passou um bom tempo em seu diretório inicial. Vamos para outro lugar. Você pode fazer isso através do comando `cd` ou *Change Directory* (Mudar diretório).
 
-If you type
+Se você digitar
 
-`cd desktop`
+`cd Área\ de\ Trabalho/`[^1]
 
-you are now on your desktop. This is akin to you 'double-clicking' on the 'desktop' folder within a file explorer. To double check, type `pwd` and you should see something like:
+[^1]: Nota: Em SO X e Linux, para informar que o espaço entre palavras é um espaço, você precisa colocar uma barra invertida antes dele. Isso é chamado de 'escapar' o espaço. Você também pode colocar o nome do diretório entre aspas, como em `cd "Área de Trabalho"`.
 
-`/Users/ianmilligan1/desktop`
+Você está agora em sua Área de Trabalho. Isso é similar a clicar duas vezes no ícone da Área de Trabalho no seu explorado de ficheiros. Para verificar novamente, digite `pwd` e você verá algo como:
 
-Try playing around with those earlier commands: explore your current directory using the `ls` command.
+`/Users/ianmilligan1/Área\ de\ Trabalho/`
 
-If you want to go back, you can type
+Tente experimentar um pouco com esses: explore seu diretório atual com o comando `ls`.
+
+Se você quiser voltar, você pode digitar
 
 `cd ..`
 
-This moves us 'up' one directory, putting us back in `/Users/ianmilligan1/`. If you ever get completely lost, the command
+Isso nos movimenta um diretório 'acima', colocando-nos de volta em `/Users/ianmilligan1/`. Se você estiver completamente perdido, o comando
 
 `cd --`
 
-will bring you right back to the home directory, right where you started.
+lhe trará de volta ao diretório inicial, exatamente onde você começou.
 
 Try exploring: visit your documents directory, your pictures, folders you might have on your desktop. Get used to moving in and out of directories. Imagine that you are navigating a [tree structure](http://en.wikipedia.org/wiki/Tree_structure). If you're on the desktop, you won't be able to `cd documents` as it is a 'child' of your home directory, whereas your Desktop is a 'sibling' of the Documents folder. To get to a sibling, you have to go back to the common parent. To do this, you will have to back up to your home directory (`cd ..`) and then go forward again to `cd documents`.
 
