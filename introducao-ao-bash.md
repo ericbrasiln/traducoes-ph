@@ -162,29 +162,29 @@ Isso nos movimenta um diretório 'acima', colocando-nos de volta em `/Users/ianm
 
 lhe trará de volta ao diretório inicial, exatamente onde você começou.
 
-Try exploring: visit your documents directory, your pictures, folders you might have on your desktop. Get used to moving in and out of directories. Imagine that you are navigating a [tree structure](http://en.wikipedia.org/wiki/Tree_structure). If you're on the desktop, you won't be able to `cd documents` as it is a 'child' of your home directory, whereas your Desktop is a 'sibling' of the Documents folder. To get to a sibling, you have to go back to the common parent. To do this, you will have to back up to your home directory (`cd ..`) and then go forward again to `cd documents`.
+Tente explorar: visite seu diretório documentos, imagens,pastas que você tenha na sua área de trabalho. Se acostume a se movimentar entre os diretórios. Imagine que você está navegando por uma [estrutura de árvore](http://en.wikipedia.org/wiki/Tree_structure) (em inglês). Se você está na área de trabalho, você não será capaz de `cd documents` pois este é um 'filho' de seu diretório inicial, ao passo que sua Área de Trabalho é 'irmã' de sua pasta Documentos. para se mover para uma irmã, você deve retornar ao pai comum. Para fazer isso, você deverá retornar para o seu diretório inicial (`cd ..`) e então se mover para `cd documents`.
 
-Being able to navigate your file system using the bash shell is very important for many of the lessons at the *Programming Historian*. As you become more comfortable, you'll soon find yourself skipping directly to the directory that you want. In our case, from anywhere on our system, you could type
+Ser capaz de navegar no seus sistema de ficheiros utilizando o shell bash é muito importante para muitas das lições no *Programming Historian*. À medida que você se sentir mais confortável, logo se verá pulando diretamente para o diretório que deseja. No nosso caso, de qualquer lugar em nosso sistema, você pode digitar
 
 `cd /users/ianmilligan1/mallet-2.0.7`
 
-or, on Windows, something like
+ou, no Windows, algo como
 
 `cd c:\mallet-2.0.7\`
 
-and be brought to our MALLET directory for [topic modeling](/lessons/topic-modeling-and-mallet).
+e ser levado ao nosso diretório MALLET para [modelagem de tópicos](/lessons/topic-modeling-and-mallet).
 
-Finally, try
+Por fim, tente
 
 `open .`
 
-in OS X or
+no SO X ou
 
 `explorer .`
 
-in Windows. That command will open up your GUI at the current directory. Make sure to leave a space between `open` or `explorer` and the period.
+No Windows. Esse comando abrirá seu GUI no diretório atual. Certifique-se de deixar o espaço entre `open` ou `explorer` e o ponto.
 
-## Interacting with Files
+## Interagindo com ficheiros
 
 As well as navigating directories, you can interact with files on the command line: you can read them, open them, run them, and even edit them, often without ever having to leave the interface. There is some debate over why one would do this. The primary reason is the seamless experience of working on the command line: you never have to pick up your mouse or touch your track pad, and, although it has a steep learning curve it can eventually become a sole writing environment. Furthermore, many programs require you to use the command line to operate with them. Since you'll be using programs on the command line, it can often be quicker to make small edits without switching into a separate program. For some of these arguments, see Jon Beltran de Heredia's ["Why, oh WHY, do those #?@! nutheads use vi?"](http://www.viemu.com/a-why-vi-vim.html).
 
