@@ -1,5 +1,5 @@
 ---
-title: Introdução à linha de comando Bash
+title: Introdução à Linha de Comando Bash
 layout: lesson
 date: 2023-05-29
 authors:
@@ -11,7 +11,7 @@ reviewers:
 - Charlotte Tupman
 editors:
 - Adam Crymble
-tradutors:
+translator:
 - Eric Brasil
 difficulty: 1
 review-ticket:
@@ -198,25 +198,25 @@ Isto cria um diretório com o nome, como você pode imaginar, 'ProgHist-Text'. E
 
 Mas espere! Há um truque para tornar as coisas um pouco mais rápidas. Vá para o diretório anterior (`cd ..` - que o levará de volta para a área de trabalho). Para navegar até o diretório `ProgHist-Text`, você poderia digitar `cd ProgHist-Text`. Alternativamente, você poderia digitar cd Prog e depois pressionar a tecla Tab. Você notará que a interface completa a linha para `cd ProgHist-Text`. **Pressionar a tecla tab a qualquer momento no shell irá tentar autocompletar a linha com base nos ficheiros ou subdiretórios no diretório atual. No entanto, isso é sensível a maiúsculas e minúsculas. No exemplo anterior, `cd prog` não seria autocompletado para `ProgHist-Text`. Quando dois ou mais ficheiros têm os mesmos caracteres, o autocompletar preencherá apenas até o primeiro ponto de diferença. Encorajamos o uso desse método ao longo da lição para ver como ele funciona.**
 
-Agora você precisa encontrar uma ficheiros de texto simples para nos ajudar com o exemplo. Porque não usar um livro que você sabe ser longo, tal como o épico de Leo Tolstoy *Guerra e Paz*. O ficheiro de texto está disponível no [Projeto Gutenberg](http://www.gutenberg.org/ebooks/2600) (em inglês). Se você já instalou o [wget](/lessons/applied-archival-downloading-with-wget) (em inglês), você pode simplesmente digitar
+Agora você precisa encontrar um ficheiro de texto simples para nos ajudar com o exemplo. Porque não usar um livro inteiro, tal como revolucionário *Memórias Póstumas de Brás Cuvas*, de Machado de Assis? O ficheiro de texto está disponível no [Internet Archive](https://ia801703.us.archive.org/11/items/memoriasPostumasBrasCubas/memoriasBras_djvu.txt). Se você já instalou o [wget](/lessons/applied-archival-downloading-with-wget) (em inglês), você pode simplesmente digitar
 
-`wget http://www.gutenberg.org/files/2600/2600-0.txt`
+`wget https://ia801703.us.archive.org/11/items/memoriasPostumasBrasCubas/memoriasBras_djvu.txt`
 
 Se você ainda não tem o wget instalado, faça o download do do texto você mesmo utilizando seu navegador. Vá até o link acima, e, em seu navegador, use a opção 'Salvar página como..' no 'menu arquivo'. Salve no seu novo diretório 'ProgHist-Text'. Agora, quando digitar
 
 `ls -lh`
 
-você verá
+você verá algo como
 
->> -rw-r--r--+ 1 ianmilligan1  staff   3.1M  1 May 10:03 pg2600.txt
+>> -rw-r--r--+ 1 ianmilligan1  staff   3.1M  1 May 10:03 memoriasBras_djvu.txt
 
-Você pode ler o texto no interior desse ficheiro de algumas maneiras diferentes. Primeiro, você pode informar nosso computador que você quer lê-lo utilizando o programa padrão que você usa paar abrir ficheiros de texto. Por padrão, deve ser o TextEdit no SO X ou Notepad no Windows. Para abrir um ficheiro, digite
+Você pode ler o texto no interior desse ficheiro de algumas maneiras diferentes. Primeiro, você pode informar nosso computador que você quer lê-lo utilizando o programa padrão que você usa para abrir ficheiros de texto. Por padrão, deve ser o TextEdit no SO X ou Notepad no Windows. Para abrir um ficheiro, digite
 
-`open pg2600.txt`
+`open memoriasBras_djvu.txt`
 
 no SO X, ou
 
-`explorer pg2600.txt`
+`explorer memoriasBras_djvu.txt`
 
 no Windows.
 
@@ -224,171 +224,172 @@ Isso seleciona o programa padrão para abrir aquele tipo de ficheiro, e o abre.
 
 No entanto, muitas vezes você deseja apenas trabalhar na linha de comando sem sair dela. Você também pode ler arquivos dentro desse ambiente. Para experimentar isso, digite:
 
-`cat pg2600.txt`
+`cat memoriasBras_djvu.txt`
 
 A janela do terminal irrompe onde *Guerra e Paz* se desenrola em cascada. Isso é ótimo, em teoria, mas você realmente consegue entender essa quantidade de texto? Em vez disso, você pode querer apenas examinar o primeiro ou o último *bit* do arquivo.
 
-`head pg2600.txt`
+`head memoriasBras_djvu.txt`
 
 Fornece uma visão das primeiras dez linhas, enquanto
 
-`tail pg2600.txt`
+`tail memoriasBras_djvu.txt `
 
-fornece uma perspectiva das últimas dez linhas. Esta é uma boa maneira de determinar rapidamente o conteúdo do ficheiro. Você poderia incluir um comando para alterar a quantidade de linhas mostradas: `head -20 pg2600.txt`, por exemplo, mostraria as vinte primeiras linhas.
+fornece uma perspectiva das últimas dez linhas. Esta é uma boa maneira de determinar rapidamente o conteúdo do ficheiro. Você poderia incluir um comando para alterar a quantidade de linhas mostradas: `head -20 memoriasBras_djvu.txt`, por exemplo, mostraria as vinte primeiras linhas.
 
-You may also want to change the file name to something more descriptive. You can 'move' it to a new name by typing
+Você também deseja mudar o nome do ficheiro para algo mais descritivo. Você pode 'mover' para um novo nome digitante
 
-`mv pg2600.txt tolstoy.txt`
+`mv memoriasBras_djvu.txt machado.txt`
 
-Afterwards, when you perform a `ls` command, you will see that it is now `tolstoy.txt`. Had you wanted to duplicate it, you could also have run the copy command by typing
+Posteriormente, ao executar um comando `ls`, você verá que agora é `machado.txt`. Se você quisesse duplicá-lo, também poderia executar o comando copy digitando
 
-`cp pg2600.txt tolstoy.txt`
+`cp memoriasBras_djvu.txt machado.txt`
 
-you will revisit these commands shortly.
+Você revisitará esses comandos em breve.
 
-Now that you have used several new commands, it's time for another trick. Hit the up arrow on your keyboard. Notice that `cp pg2600.txt tolstoy.txt` appears before your cursor. You can continue pressing the up arrow to cycle through your previous commands. The down arrow cycles back toward your most recent command.
+Agora que você utilizou diversos comandos novos, é hora de mais um truque. Pressione a seta para cima no seu teclado. Observe que `cp memoriasBras_djvu.txt machado.txt` aparece antes do seu cursor. Você pode continuar pressionando a seta para cima para percorrer seus comandos anteriores. A seta para baixo retorna ao seu comando mais recente.
 
-After having read and renamed several files, you may wish to bring their text together into one file. To combine, or concatenate, two or more files, you can use the `cat` command. First, let's duplicate the Tolstoy file ( `cp tolstoy.txt tolstoy2.txt`). Now that you have two copies of *War and Peace*, let's put them together to make an **even longer** book.
+Após ter lido e renomeado vários ficheiros, você pode desejar reunir todos os seus textos em um único ficheiro. Para combinar. ou concatenar, dois ou mais ficheiros, você pode usar o comando `cat`. Primeiro, vamos duplicar o ficheiro Machado ( `cp machado.txt machado2.txt`). Agora que você tem duas cópias do *Memórias Póstumas*, vamos colocá-los juntos para fazer um livro **ainda mais longo**.
 
-To combine, or concatenate, two or more files use the `cat` command. Type
+Para combinar, ou concatenar, dois ou mais ficheiros use o comando `cat`. Digite
 
-`cat tolstoy.txt tolstoy2.txt`
+`cat machado.txt machado2.txt`
 
-and press enter. This prints, or displays, the combined files within the shell. However, it is too long to read on this window! Luckily, by using the `>` command, you can send the output to a new file, rather than the terminal window. Type
+e aperte Enter. Isso irá imprimir na tela, ou mostrar, os ficheiros combinados no interior do shell. Contudo, ele é longo demais para ser lido nessa janela! Felizmente, utilizando o comando `>`, você pode enviar o rsultado para um novo ficheiro, ao invés da visualização no terminal. Digita
 
-`cat tolstoy.txt tolstoy2.txt > tolstoy-twice.txt`.
+`cat machado.txt machado2.txt > machado-em-dobro.txt`.
 
-Now, when you type `ls` you'll see `tolstoy-twice.txt` appear in your directory.
+Agora, quando você digitar `ls` você verá `machado-em-dobro.txt` listado em seu diretório.
 
-When combining more than two files, using a wildcard can help avoid having to write out each filename individually. As you have seen above, `*`, is a place holder for zero or more characters or numbers. So, if you type
+Quando combinando mais do que dois ficheiros, usar um _wildcard_ pode ajudar a evitar escrever cada nome de ficheiro individualmente. Como você viu anteriormente, `*` é um espaço reservado para zero ou mais caracteres ou números. Então, se você digitar
 
-`cat *.txt > everything-together.txt`
+`cat *.txt > tudo-junto.txt`
 
-and hit enter, a combination of all the .txt files in the current directory are combined in alphabetical order as `everything-together.txt`. This can be very useful if you need to combine a large number of smaller files within a directory so that you can work with them in a text analysis program. Another wildcard worth remembering is `?` which is a place holder for a single character or number.
+e apertar Enter, uma combinação de todos os ficheiros .txt no diretório atual são combinados em ordem alfabética como `tudo-junto.txt`. Isto pode ser muito útil se você precisa combinar um número elevado de pequenos ficheiros no interior um diretório para que você possa trabalhar com eles em um programa de análise de texto. Outra _wildcard_ que vale a pena ser memorizada é `?` que é um espaço reservado para um único caractere ou número.
 
-## Editing Text Files Directly on the Command Line
+## Editando ficheiros de texto diretamente na linha de comando
 
-If you want to read a file in its entirety without leaving the command line, you can fire up [vim](http://en.wikipedia.org/wiki/Vim_%28text_editor%29). Vim is a very powerful text editor, which is perfect for using with programs such as [Pandoc](http://johnmacfarlane.net/pandoc/) to do word processing, or for editing your code without having to switch to another program. Best of all, it comes included with bash on both OS X and Windows. Vim has a fairly steep learning curve, so we will just touch on a few minor points.
+Se você quiser ler um arquivo inteiro sem sair da linha de comando, você pode iniciar o [vim](http://en.wikipedia.org/wiki/Vim_%28text_editor%29) (em inglês). O Vim é um editor de texto muito poderoso, perfeito para usar com programas como [Pandoc](http://johnmacfarlane.net/pandoc/) para fazer processamento de texto ou para editar seu código sem ter que mudar para outro programa. O melhor de tudo é que ele vem incluído no bash tanto no SO X quanto no Windows. O Vim tem uma curva de aprendizado bastante acentuada, então vamos apenas abordar alguns pontos menores.
 
-Type
+Digite
 
-`vim tolstoy.txt`
+`vim machado.txt`
 
-You should see vim come to life before you, a command-line based text editor.
+Você verá o vim ganhar vida diante de você, um editor de texto baseado em linha de comando.
 
 {% include figure.html filename="vim.png" caption="Vim" %}
 
-If you really want to get into Vim, there is a [good Vim guide](http://vimdoc.sourceforge.net/htmldoc/quickref.html) available.
+Se você realmente quer se aprofundar no Vim, há um [bom guia do Vim](http://vimdoc.sourceforge.net/htmldoc/quickref.html) (em inglês) disponível.
 
-Using Vim to read files is relatively simple. You can use the arrow keys to navigate around and could theoretically read *War and Peace* through the command line (one should get an achievement for doing that). Some quick basic navigational commands are as follows:
+Utilizar o Vim para ler ficheiros é relativamente simples. Você pode utilizar as setas para navegar e poderia teoricamente ler *Memórias Póstumas* através da linha de comando. Alguns comandos básicos de navegação rápidos são os seguintes:
 
-`Ctrl+F` (that is, holding down your 'control key' and pressing the letter F) will move you down a page (`Shift+UpArrow` for Windows).
+`Ctrl+F` (ou seja, pressionar e segurar a tecla 'Ctrl' e pressionar a tecla F) irá lhe mover uma página abaixo (`Shift+SetaParaCima` no Windows).
 
-`Ctrl+B` will move you up a page. (`Shift+DownArrow` for Windows users).
+`Ctrl+B` irá lhe mover uma página acima (`Shift+SetaParaBaixo` para usuários do Windows).
 
-If you want to rapidly move to the end of a line, you can press: `$` and to move to the start of one, `0`. You can also move between sentences by typing `)` (forward) or `(` (backwards). For paragraphs, use `}` and `{`. Since you are doing everything with your keyboard, rather than having to hold your arrow key down to move around a document, this lets you zip quickly back and forth.
+Se você deseja se mover rapidamente para o final de uma linha, pode pressionar: `$`, e para se mover para o início de uma linha, `0`. Você também pode se mover entre sentenças digitando `)` (para frente) ou `(` (para trás). Para parágrafos, use `}` e `{`. Como você está fazendo tudo com o teclado, em vez de ter que segurar a tecla de seta para se mover em um documento, isso permite que você se mova rapidamente para frente e para trás.
 
-Let's scroll to the top and do a minor change, such as adding a `Reader` field in the heading. Move your cursor in between **Author:** and **Translators:**, like so:
+Vamos rolar até o topo e fazer uma alteração mínima, como adicionar um campo `Leitor` no cabeçalho. Mova o cursor entre **o título** e **Texto-fonte:**, assim:
 
-{% include figure.html filename="about-to-insert.png" caption="About to Insert a Field" %}
+{% include figure.html filename="pronto-para-inserir.png" caption="Pronto para inserir um campo" %}
 
-If you just start typing, you'll get an error message or the cursor will begin jumping around. This is because you have to specify that you want to do an edit. Press the letter
+Se você simplesmente começar a digitar, receberá uma mensagem de erro ou o cursor começará a pular. Isso ocorre porque você precisa especificar que deseja fazer uma edição. Pressione a tecla
 
 `a`
 
-At the bottom of the screen, you will see
+Na parte de baixo da tela, você verá
 
-`-- INSERT --`
+`-- INSERÇÃO --`
 
-This means you are in insert mode. You can now type and edit text as if you are in a standard text editor. Press `enter` twice, then `arrow up`, and type
+Isso significa que você está no modo de inserção. Agora você pode digitar e editar o texto como se estivesse em um editor de texto padrão. Pressione `Enter` duas vezes, depois `seta para cima` e digite:
 
-`Reader: A Programming Historian`
+`Leitor: Um Historiador Programador`
 
-When you are done, press `ESC` to return to reading mode.
+Quando terminar, pressione `ESC` para retornar ao modo de leitura.
 
-To leave vim or to make saves, you have to enter a series of commands. Press `:` and you'll move to the command input line of Vim. you can enter a variety of commands here. If you want to save the file, type `w` to 'write' the file. If you execute that command, you will see
+Para sair do Vim ou salvar alterações, você precisa inserir uma série de comandos. Pressione `:` e você será levado para a linha de entrada de comandos do Vim. Você pode digitar vários comandos aqui. Se você quiser salvar o ficheiro, digite `w` para 'escrever' (_write_ em inglês) o ficheiro. Se você executar esse comando, verá:
 
->> "tolstoy.txt" [dos] 65009L, 3291681C written
+>> "machado.txt" 7952L, 371667B gravado(s)
 
-{% include figure.html filename="after-writing.png" caption="After Writing the File, with Our Minor Change" %}
+{% include figure.html filename="apos-escrever.png" caption="Após Escrever o Ficheiro, com nossas Pequenas Alterações" %}
 
-If you want to quit, type `:` again and then `q`. It will return you to the command line. As with the rest of bash, you could have also combined the two commands. Pressing `:` and then typing `wq` would have written the file and then quit. Or, if you wanted to exit **without** saving, `q!` would have quit vim and overriden the default preference to save your changes.
+Se você quiser sair, digite `:` novamente e depois `q`. Isso o levará de volta à linha de comando. Assim como no restante do bash, você também poderia ter combinado os dois comandos. Pressionar `:` e depois digitar `wq` teria salvado o ficheiro e depois saído do Vim. Ou, se você quisesse sair **sem** salvar, `q!` teria encerrado o vim e substituído a preferência padrão para salvar suas alterações.
 
-Vim is different than you are likely used to and will require more work and practice to become fluent with it. But if you are tweaking minor things in files, it is a good way to get started. As you become more comfortable, you might even find yourself writing term papers with it, by harnessing the [footnoting and formatting power of Pandoc and Markdown](/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown).
+Vim é diferente do que você está acostumado(a) e exigirá mais esforço e prática para se tornar fluente nele. Mas se você estiver fazendo pequenos ajustes em ficheiros, é uma boa maneira de começar. À medida que você se sentir mais confortável, talvez até comece a escrever trabalhos finais de disciplinas com ele, aproveitando o poder das [notas de rodapé e formatação do Pandoc e Markdown](/pt/licoes/autoria-sustentavel-texto-simples-pandoc-markdown).
 
-## Moving, Copying, and Deleting Files
+## Mover, Copiar e Deletar Ficheiros
 
-Let's say you are done with this directory, and you would like to move `tolstoy.txt` somewhere else. First, you should create a backup copy. The shell is quite unforgiving with mistakes, and backing up is even more important than with GUIs. If you delete something here, there's no recycling bin to fish it out of. To create a backup, you can type
+Digamos que você terminou este diretório e gostaria de mover `machado.txt` para outro lugar. Primeiro, você deve criar uma cópia de backup. O shell é bastante implacável com erros, e o backup é ainda mais importante do que com GUIs. Se você excluir algo aqui, não haverá lixeira para retirá-lo. Para criar um backup, você pode digitar
 
-`cp tolstoy.txt tolstoy-backup.txt`
+`cp machado.txt machado-backup.txt`
 
-Now when you run a `ls` command you will see five files, two of which are the same: `tolstoy.txt` and `tolstoy-backup.txt`.
+Agora, quando você executar um comando `ls`, verá cinco arquivos, dois dos quais são iguais: `machado.txt` e `machado-backup.txt`.
 
-Let's move the first of these somewhere else. By way of example, let's create a second directory on your desktop. Move up to your desktop (`cd ..`) and `mkdir` another directory. Let's call it `proghist-dest`.
+Vamos mover o primeiro deles para outro lugar. Como exemplo, vamos criar um segundo diretório na sua área de trabalho. Vá para a área de trabalho (`cd ..`) e use o comando `mkdir` para criar outro diretório. Vamos chamá-lo de `proghist-dest`.
 
-To copy `tolstoy.txt` you have a few different options. you could run these commands from anywhere in the shell, or you could visit either the origin or destination directories. For this example, let's just run it from here. The basic format of the copy command is `cp [source] [destination]`. That is, you type `cp` first, and then enter the file or files that you want to copy followed by where they should go.
+Para copiar o arquivo `machado.txt`, você tem algumas opções diferentes. Você pode executar esses comandos de qualquer lugar no terminal ou pode visitar os diretórios de origem ou destino. Para este exemplo, vamos executar o comando a partir daqui. O formato básico do comando de cópia é `cp [origem] [destino]`. Ou seja, você digita `cp` primeiro e, em seguida, insere o arquivo ou arquivos que deseja copiar, seguido pelo local para onde eles devem ir.
+
 
 In this case, the command
 
-`cp /users/ianmilligan1/desktop/proghist-text/tolstoy.txt /users/ianmilligan1/desktop/proghist-dest/`
+`cp /home/ebn/"Área de Trabalho"/proghist-text/machado.txt /home/ebn/"Área de Trabalho"/proghist-dest/`
 
-will copy Tolstoy from the first directory to the second directory. You will have to insert your own username in place of 'ianmilligan1'. This means you now have three copies of the novel on our computer. The original, the backup and the new copy in the second directly. If you wanted to **move** the file, that is, not leave a copy behind, you could run the command again, swapping `cp` for `mv`; let's not do this yet.
+copiará Machado do primeiro diretório para o segundo. Você terá que inserir seu próprio nome de usuário no lugar de 'ebn'. Isso significa que agora você tem três cópias do romance em seu computador. O original, o backup e a nova cópia no segundo diretório. Se você quiser **mover** o ficheiro, ou seja, não deixar uma cópia para trás, você pode rodar o comando novamente, trocando `cp` por `mv`; não vamos fazer isso ainda.
 
-You can also copy multiple files with a single command. If you wanted to copy **both** the original and the backup file, you could use the wildcard command.
+Você também pode copiar vários ficheiros com um único comando. Se você deseja copiar **ambos** o ficheiro original e o ficheiro de backup, você pode usar o comando de _wildcard_ (curinga).
 
-`cp /users/ianmilligan1/desktop/proghist-text/*.txt /users/ianmilligan1/desktop/proghist-dest/`
+`cp /home/ebn/"Área de trabalho"/proghist-text/*.txt /home/ebn/"Área de trabalho"/proghist-dest/`
 
-This command copies **all** the text files from the origin directory into the destination directory.
+Este comando copia **todos** os arquivos de texto do diretório de origem para o diretório de destino.
 
-Note: If you are in the directory that you either want to move things to or from, you do not have to type out the whole directory structure. Let's do two quick examples. Change your directory to the `proghist-text` directory. From this location, if you wanted to copy these two files to `proghist-dest`, this command would work:
+Se você estiver no diretório para o qual deseja mover as coisas, não é necessário digitar toda a estrutura do diretório. Vamos fazer dois exemplos rápidos. Altere seu diretório para o diretório `ProgHist-text`. A partir deste local, se você quiser copiar esses dois arquivos para `proghist-dest`, este comando funcionará:
 
-`cp *.txt /users/ianmilligan1/desktop/proghist-dest/` (on OS X, substitute the directory on Windows)
+`cp *.txt /home/ebn/"Área de Trabalho"/proghist-dest/` (no SO X e Linux, substitua o diretório no Windows).
 
-Alternatively, if you were in the `proghist-dest` directory, this command would work:
+Como alternativa, se você estivesse no diretório `proghist-dest`, este comando funcionaria:
 
-`cp /users/ianmilligan1/desktop/proghist-text/*.txt ./`
+`cp /home/ebn/"Área de Trabalho"/proghist-text/*.txt ./`
 
-The `./` command refers to the **current** directory you're in. **This is a really valuable command.**
+O comando `./` refere-se ao diretório **atual** em que você está. **Este é um comando realmente valioso.**
 
-Finally, if you want to delete a file, for whatever reason, the command is `rm`, or remove. **Be careful with the `rm` command**, as you don't want to delete files that you do not mean to. Unlike deleting from within your GUI, there is **no** recycling bin or undo options. For that reason, if you are in doubt, you may want to exercise caution or maintain a regular backup of your data.
+Por fim, se você quiser excluir um arquivo, por qualquer motivo, o comando é `rm`, ou remove. **Tenha cuidado com o comando `rm`**, pois você não quer excluir arquivos que não pretende. Ao contrário da exclusão dentro da sua interface gráfica, não há lixeira ou opções de desfazer. Por essa razão, se você estiver em dúvida, é recomendado ter cautela ou fazer backups regulares dos seus dados.
 
-Move to `proghist-text` and delete the original file by typing
+Vá para `proghist-text` e exclua o arquivo original digitando
 
-`rm tolstoy.txt`
+`rm machado.txt`
 
-Check that the file is gone using the `ls` command.
+Verifique se o arquivo foi removido usando o comando `ls`.
 
-If you wanted to delete an entire directory, you have two options. you can use `rmdir`, the opposite of `mkdir`, to delete an **empty** directory. To delete a directory with files, you could use from the desktop:
+Se você deseja excluir um diretório inteiro, tem duas opções. Você pode usar `rmdir`, o oposto de `mkdir`, para deletar um diretório **vazio**. Para excluir um diretório com ficheiros, você pode usar na área de trabalho:
 
 `rm -r proghist-text`
 
-## Conclusions
+## Conclusões
 
-You may want to take a break from the terminal at this point. To do so, enter `exit` and you'll close your session.
+Você pode querer fazer uma pausa no terminal neste momento. Para fazer isso, digite `exit` e você fechará sua sessão.
 
-There are more commands to try as you get more comfortable with the command line. Some of our other favourites are `du`, which is a way to find out how much memory is being used (`du -h` makes it human readable — as with other commands). For those of you on OS X, `top` provides an overview of what processes are running (`mem` on Windows) and `touch FILENAME` can create a basic text file on both systems
+Há mais comandos para tentar à medida que você se familiariza com a linha de comando. Alguns de nossos outros favoritos são `du`, que é uma maneira de descobrir quanta memória está sendo usada em um diretório ou ficheiro (`du -h` o torna legível por humanos - como com outros comandos). Para aqueles de vocês no SO X ou Linux, `top` fornece uma visão geral de quais processos estão sendo executados (`mem` no Windows) e `touch NOMEDOFICHEIRO` pode criar um ficheiro de texto básico em ambos os sistemas.
 
-By this point, we hope you have a good, basic understanding of how to move around using the command line, move basic files, and make minor edits here and there. This beginner-level lesson is designed to give you some basic fluency and confidence. In the future, you may want to get involved with scripting.
+A esta altura, esperamos que você tenha uma boa compreensão básica de como se movimentar usando a linha de comando, mover arquivos básicos e fazer pequenas edições aqui e ali. Esta lição de nível iniciante foi projetada para dar a você alguma fluência e confiança básicas. No futuro, você pode querer se envolver com scripts.
 
-Have fun! Before you know it, you may find yourself liking the convenience and precision of the command line - for certain applications, at least - far more than the bulkier GUI that your system came with. Your toolkit just got bigger.
+Divirta-se! Antes que perceba, você pode acabar gostando da conveniência e precisão da linha de comando - para determinadas aplicações, pelo menos - muito mais do que a interface gráfica pesada fornecida pelo seu sistema. O seu conjunto de ferramentas acabou de ficar maior.
 
 ## Reference Guide
 
-For your convenience, here are the commands that you have learned in this lesson:
+Para sua conveniência, aqui estão os comandos que você aprendeu nesta lição:
 
-| Command              | What It Does                                                                                                                      |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `pwd`                | Prints the 'present working directory,' letting you know where you are.                                                           |
-| `ls`                 | Lists the files in the current directory                                                                                          |
-| `man *`              | Lists the manual for the command, substituted for the `*`                                                                         |
-| `cd *`               | Changes the current directory to `*`                                                                                              |
-| `mkdir *`            | Makes a directory named `*`                                                                                                       |
-| `open` or `explorer` | On OS X, `open` followed by a file opens it; in Windows, the command `explorer` followed by a file name does the same thing.      |
-| `cat *`              | `cat` is a versatile command. It will read a file to you if you substitute a file for `*`, but can also be used to combine files. |
-| `head *`             | Displays the first ten lines of `*`                                                                                               |
-| `tail *`             | Displays the last ten lines of `*`                                                                                                |
-| `mv`                 | Moves a file                                                                                                                      |
-| `cp`                 | Copies a file                                                                                                                     |
-| `rm`                 | Deletes a file                                                                                                                    |
-| `vim`                | Opens up the `vim` document editor.                                                                                               |
+| Command              | What It Does                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `pwd`                | Imprime o 'diretório de trabalho atual', informando onde você está.                                                                                    |
+| `ls`                 | Lista os ficheiros do diretório atual                                                                                                                  |
+| `man *`              | Lista o manual do comando, substituído pelo `*`                                                                                                        |
+| `cd *`               | Muda o diretório atual para `*`                                                                                                                        |
+| `mkdir *`            | Cria um diretório chamado `*`                                                                                                                          |
+| `open` ou `explorer` | No SO X e no Linux, `open`, seguido por um arquivo, o abre; no Windows, o comando `explorer` seguido de um nome de arquivo faz a mesma coisa.          |
+| `cat *`              | `cat` é um comando versátil. Ele lerá um ficheiro para você se você substituir um ficheiro por `*`, mas também pode ser usado para combinar ficheiros. |
+| `head *`             | Mostra as primeiras dez linhas de `*`                                                                                                                  |
+| `tail *`             | Mostra as últimas dez linhas de `*`                                                                                                                    |
+| `mv`                 | Movimenta um ficheiro                                                                                                                                  |
+| `cp`                 | Copia um ficheiro                                                                                                                                      |
+| `rm`                 | Deleta um ficheiro                                                                                                                                     |
+| `vim`                | Abre o editor de documentos `vim`.                                                                                                                     |
 

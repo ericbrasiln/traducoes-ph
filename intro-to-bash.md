@@ -331,7 +331,7 @@ In this case, the command
 
 `cp /users/ianmilligan1/desktop/proghist-text/tolstoy.txt /users/ianmilligan1/desktop/proghist-dest/`
 
-will copy Tolstoy from the first directory to the second directory. You will have to insert your own username in place of 'ianmilligan1'. This means you now have three copies of the novel on our computer. The original, the backup and the new copy in the second directly. If you wanted to **move** the file, that is, not leave a copy behind, you could run the command again, swapping `cp` for `mv`; let's not do this yet.
+will copy Tolstoy from the first directory to the second directory. You will have to insert your own username in place of 'ianmilligan1'. This means you now have three copies of the novel on our computer. The original, the backup and the new copy in the second directory. If you wanted to **move** the file, that is, not leave a copy behind, you could run the command again, swapping `cp` for `mv`; let's not do this yet.
 
 You can also copy multiple files with a single command. If you wanted to copy **both** the original and the backup file, you could use the wildcard command.
 
@@ -339,9 +339,9 @@ You can also copy multiple files with a single command. If you wanted to copy **
 
 This command copies **all** the text files from the origin directory into the destination directory.
 
-Note: If you are in the directory that you either want to move things to or from, you do not have to type out the whole directory structure. Let's do two quick examples. Change your directory to the `proghist-text` directory. From this location, if you wanted to copy these two files to `proghist-dest`, this command would work:
+Note: If you are in the directory that you either want to move things to or from, you do not have to type out the whole directory structure. Let's do two quick examples. Change your directory to the `ProgHist-text` directory. From this location, if you wanted to copy these two files to `proghist-dest`, this command would work:
 
-`cp *.txt /users/ianmilligan1/desktop/proghist-dest/` (on OS X, substitute the directory on Windows)
+`cp *.txt /users/ianmilligan1/desktop/proghist-dest/` (on OS X, substitute the directory on Windows).
 
 Alternatively, if you were in the `proghist-dest` directory, this command would work:
 
@@ -357,7 +357,7 @@ Move to `proghist-text` and delete the original file by typing
 
 Check that the file is gone using the `ls` command.
 
-If you wanted to delete an entire directory, you have two options. you can use `rmdir`, the opposite of `mkdir`, to delete an **empty** directory. To delete a directory with files, you could use from the desktop:
+If you wanted to delete an entire directory, you have two options. You can use `rmdir`, the opposite of `mkdir`, to delete an **empty** directory. To delete a directory with files, you could use from the desktop:
 
 `rm -r proghist-text`
 
@@ -365,7 +365,7 @@ If you wanted to delete an entire directory, you have two options. you can use `
 
 You may want to take a break from the terminal at this point. To do so, enter `exit` and you'll close your session.
 
-There are more commands to try as you get more comfortable with the command line. Some of our other favourites are `du`, which is a way to find out how much memory is being used (`du -h` makes it human readable — as with other commands). For those of you on OS X, `top` provides an overview of what processes are running (`mem` on Windows) and `touch FILENAME` can create a basic text file on both systems
+There are more commands to try as you get more comfortable with the command line. Some of our other favourites are `du`, which is a way to find out how much memory is being used (`du -h` makes it human readable — as with other commands). For those of you on OS X, `top` provides an overview of what processes are running (`mem` on Windows) and `touch FILENAME` can create a basic text file on both systems.
 
 By this point, we hope you have a good, basic understanding of how to move around using the command line, move basic files, and make minor edits here and there. This beginner-level lesson is designed to give you some basic fluency and confidence. In the future, you may want to get involved with scripting.
 
