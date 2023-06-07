@@ -186,55 +186,55 @@ No Windows. Esse comando abrirá seu GUI no diretório atual. Certifique-se de d
 
 ## Interagindo com ficheiros
 
-As well as navigating directories, you can interact with files on the command line: you can read them, open them, run them, and even edit them, often without ever having to leave the interface. There is some debate over why one would do this. The primary reason is the seamless experience of working on the command line: you never have to pick up your mouse or touch your track pad, and, although it has a steep learning curve it can eventually become a sole writing environment. Furthermore, many programs require you to use the command line to operate with them. Since you'll be using programs on the command line, it can often be quicker to make small edits without switching into a separate program. For some of these arguments, see Jon Beltran de Heredia's ["Why, oh WHY, do those #?@! nutheads use vi?"](http://www.viemu.com/a-why-vi-vim.html).
+Assim como navegar pelos diretórios, você pode interagir com ficheiros na linha de comando: você pode lê-los, abri-los, executá-los, e mesmo editá-los, geralmente sem nunca precisar sair da interface. Há algum debate sobre por que alguém faria isso. O principal motivo é a experiência fluida de trabalhar na linha de comando: você nunca precisa pegar o mouse ou tocar no *touchpad* e, embora tenha uma curva de aprendizado acentuada, pode eventualmente se tornar um ambiente de escrita único. Além disso, muitos programas exigem que você use a linha de comando para opera-los. Como você usará programas na linha de comando, muitas vezes pode ser mais rápido fazer pequenas edições sem alternar para um programa separado. Para alguns desses argumentos, veja ["Why, oh WHY, do those #?@! nutheads use vi?"](http://www.viemu.com/a-why-vi-vim.html) de Jon Beltran de Heredia.
 
-Here's a few basic ways to do interact with files.
+Aqui estão algumas maneiras básicas de interagir com arquivos.
 
-First, you can create a new directory so you can engage with text files. We will create it on your desktop, for convenience's sake. You can always move it later. Navigate to your desktop using your shell, and type:
+Primeiro, você pode criar um novo diretório para lidar com ficheiros de texto. Vamos criá-lo em sua área de trabalho, por conveniência. Você sempre movê-lo posteriormente. Navegue até sua Área de Tabalho, e digite:
 
 `mkdir ProgHist-Text`
 
-This creates a directory named, you guessed it, 'ProgHist-Text.' In general, it's good to avoid putting spaces in your filenames and directories when using the command line (there are workarounds, of course, but this approach is simpler). You can look at your desktop to verify it has worked. Now, move into that directory (remember, that would be `cd ProgHist-Text`).
+Isto cria um diretório com o nome, como você pode imaginar, 'ProgHist-Text'. Em geral, é bom evitar colocar espaços nos nomes de arquivos e diretórios ao usar a linha de comando (existem soluções alternativas, é claro, mas essa abordagem é mais simples). Você pode verificar na sua área de trabalho se funcionou. Agora, acesse esse diretório (lembre-se, seria `cd ProgHist-Text`).
 
-But wait! There's a trick to make things a bit quicker. Go up one directory (`cd ..` - which will take you back to the Desktop). To navigate to the `ProgHist-Text` directory you could type `cd ProgHist-Text`. Alternatively, you could type `cd Prog` and then hit tab. You will notice that the interface completes the line to `cd ProgHist-Text`. **Hitting tab at any time within the shell will prompt it to attempt to auto-complete the line based on the files or sub-directories in the current directory. This is case sensitive, however (i.e. in the previous example, `cd prog` would not auto complete to `ProgHist-Text`. Where two or more files have the same characters, the auto-complete will only fill up to the first point of difference. We would encourage using this method throughout the lesson to see how it behaves.**
+Mas espere! Há um truque para tornar as coisas um pouco mais rápidas. Vá para o diretório anterior (`cd ..` - que o levará de volta para a área de trabalho). Para navegar até o diretório `ProgHist-Text`, você poderia digitar `cd ProgHist-Text`. Alternativamente, você poderia digitar cd Prog e depois pressionar a tecla Tab. Você notará que a interface completa a linha para `cd ProgHist-Text`. **Pressionar a tecla tab a qualquer momento no shell irá tentar autocompletar a linha com base nos ficheiros ou subdiretórios no diretório atual. No entanto, isso é sensível a maiúsculas e minúsculas. No exemplo anterior, `cd prog` não seria autocompletado para `ProgHist-Text`. Quando dois ou mais ficheiros têm os mesmos caracteres, o autocompletar preencherá apenas até o primeiro ponto de diferença. Encorajamos o uso desse método ao longo da lição para ver como ele funciona.**
 
-Now you need to find a basic text file to help us with the example. Why don't you use a book that you know is long, such as Leo Tolstoy's epic *War and Peace*. The text file is availiable via [Project Gutenberg](http://www.gutenberg.org/ebooks/2600). If you have already installed [wget](/lessons/applied-archival-downloading-with-wget), you can just type
+Agora você precisa encontrar uma ficheiros de texto simples para nos ajudar com o exemplo. Porque não usar um livro que você sabe ser longo, tal como o épico de Leo Tolstoy *Guerra e Paz*. O ficheiro de texto está disponível no [Projeto Gutenberg](http://www.gutenberg.org/ebooks/2600) (em inglês). Se você já instalou o [wget](/lessons/applied-archival-downloading-with-wget) (em inglês), você pode simplesmente digitar
 
 `wget http://www.gutenberg.org/files/2600/2600-0.txt`
 
-If you do not have wget installed, download the text itself using your browser. Go to the link above, and, in your browser, use the 'Save Page as..' command in your 'file menu.' Save it in your new 'ProgHist-Text directory.' Now, when you type
+Se você ainda não tem o wget instalado, faça o download do do texto você mesmo utilizando seu navegador. Vá até o link acima, e, em seu navegador, use a opção 'Salvar página como..' no 'menu arquivo'. Salve no seu novo diretório 'ProgHist-Text'. Agora, quando digitar
 
 `ls -lh`
 
-you see
+você verá
 
 >> -rw-r--r--+ 1 ianmilligan1  staff   3.1M  1 May 10:03 pg2600.txt
 
-You can read the text within this file in a few different ways. First, you can tell our computer that you want to read it using the standard program that you use to open text files. By default, this may be TextEdit on OS X or Notepad in Windows. To open a file, just type
+Você pode ler o texto no interior desse ficheiro de algumas maneiras diferentes. Primeiro, você pode informar nosso computador que você quer lê-lo utilizando o programa padrão que você usa paar abrir ficheiros de texto. Por padrão, deve ser o TextEdit no SO X ou Notepad no Windows. Para abrir um ficheiro, digite
 
 `open pg2600.txt`
 
-on OS X, or
+no SO X, ou
 
 `explorer pg2600.txt`
 
-in Windows.
+no Windows.
 
-This selects the default program to open that type of file, and opens it.
+Isso seleciona o programa padrão para abrir aquele tipo de ficheiro, e o abre.
 
-However, you often want to just work on the command line without leaving it. You can read files within this environment as well. To try this, type:
+No entanto, muitas vezes você deseja apenas trabalhar na linha de comando sem sair dela. Você também pode ler arquivos dentro desse ambiente. Para experimentar isso, digite:
 
 `cat pg2600.txt`
 
-The terminal window erupts and *War and Peace* cascades by. That's great, in theory, but you can't really make any sense of that amount of text? Instead, you may want to just look at the first or the last bit of the file.
+A janela do terminal irrompe onde *Guerra e Paz* se desenrola em cascada. Isso é ótimo, em teoria, mas você realmente consegue entender essa quantidade de texto? Em vez disso, você pode querer apenas examinar o primeiro ou o último *bit* do arquivo.
 
 `head pg2600.txt`
 
-Provides a view of the first ten lines, whereas
+Fornece uma visão das primeiras dez linhas, enquanto
 
 `tail pg2600.txt`
 
-provides a perspective on the last ten lines. This is a good way to quickly determine the contents of the file. You could add a command to change the amount of lines displayed: `head -20 pg2600.txt`, for example, would show the first twenty lines.
+fornece uma perspectiva das últimas dez linhas. Esta é uma boa maneira de determinar rapidamente o conteúdo do ficheiro. Você poderia incluir um comando para alterar a quantidade de linhas mostradas: `head -20 pg2600.txt`, por exemplo, mostraria as vinte primeiras linhas.
 
 You may also want to change the file name to something more descriptive. You can 'move' it to a new name by typing
 
