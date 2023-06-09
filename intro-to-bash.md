@@ -279,7 +279,7 @@ You should see vim come to life before you, a command-line based text editor.
 
 If you really want to get into Vim, there is a [good Vim guide](http://vimdoc.sourceforge.net/htmldoc/quickref.html) available.
 
-Using Vim to read files is relatively simple. You can use the arrow keys to navigate around and could theoretically read *War and Peace* through the command line (one should get an achievement for doing that). Some quick basic navigational commands are as follows:
+Using Vim to read files is relatively simple. You can use the arrow keys to navigate around and could theoretically read *War and Peace* through the command line ( ). Some quick basic navigational commands are as follows:
 
 `Ctrl+F` (that is, holding down your 'control key' and pressing the letter F) will move you down a page (`Shift+UpArrow` for Windows).
 
