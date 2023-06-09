@@ -17,7 +17,7 @@ difficulty: 1
 review-ticket:
 activity: transforming
 topics: [data-manipulation, get-ready]
-abstract: "Essa lição lhe ensinará como enviar comandos utilizando uma interface de linha de comando, ao invés de uma interface gráfica. Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho, como historiadores/as digitais. Permitem mais detalhamento ao rodar alguns programas, visto que você pode adicionar modificações para especificar exatamente como deseja que o programa execute. Além do mais, podem ser facilmente automatizados através de scripts, que são basicamente receitas de comandos baseados em texto."
+abstract: "Essa lição lhe ensinará como enviar comandos utilizando uma interface de linha de comando, ao invés de uma interface gráfica. Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho, como historiadores(as) digitais. Permitem mais detalhamento ao rodar alguns programas, visto que você pode adicionar modificações para especificar exatamente como deseja que um programa seja executado. Além do mais, podem ser facilmente automatizados através de scripts, que são basicamente conjuntos de comandos baseados em texto."
 next: research-data-with-unix
 redirect_from: /lessons/intro-to-bash
 avatar_alt: Soldiers in antique armor with spears
@@ -34,23 +34,23 @@ doi:
 
 ## Introdução
 
-Muitas das lições do *Programming Historian* exigem que você insira comandos através de uma **interface de linha de comando**. A maneira usual de os usuários de computador hoje interagirem com seu sistema é através de uma **interface gráfica do usuário** ou GUI. Isso significa que, quando você entra em uma pasta, clica em uma imagem de uma pasta de ficheiro; quando você executa um programa, você clica nele; e quando você navega na web, você usa o mouse para interagir com vários elementos em uma página da web. Antes da ascensão das GUIs no final dos anos 1980, no entanto, a principal maneira de interagir com um computador era através de uma interface da linha de comando.
+Muitas das lições do *Programming Historian* exigem que você insira comandos através de uma **interface de linha de comando**. A maneira usual de usuários de computador interagirem com seu sistema atualmente é através de uma **interface gráfica de usuário** ou GUI (do inglês _Graphical User Interface_). Isso significa que, para entrar em uma pasta, você clica em uma imagem de uma pasta de ficheiros; para você executar um programa, você clica nele; e quando você navega na web, você usa o mouse para interagir com vários elementos de uma página da web. Antes da ascensão das GUIs no final dos anos 1980, no entanto, a principal maneira de interagir com um computador era através de uma interface da linha de comando.
 
 {% include figure.html filename="GUI.png" caption="GUI do computador de Ian Milligan" %}
 
-Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho -- tal como historiadores digitais.Elas permitem maior detalhamento quando executando alguns programas, ao passo que você pode adicionar modificações para especificar exatamente como deseja que o programa execute. Além do mais, elas podem ser facilmente automatizadas através de [scripts](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/chap_01.html), que são basicamente receitas de comandos baseados em texto.
+Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho -- tal como historiadores(as) digitais. Elas permitem maior detalhamento quando executando alguns programas, ao passo que você pode adicionar modificações para especificar exatamente como deseja que o programa seja executado. Além do mais, elas podem ser facilmente automatizadas através de [scripts](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/chap_01.html), que são basicamente conjuntos de comandos baseados em texto.
 
-Existem duas interfaces de linha de comando principais, ou 'shells,' que muitos historiadores digitais utilizam. No macOS[^1] ou muitas distribuições Linux, o shell é conhecido como `bash`, ou o 'Bourne-again shell' (*shell renascido*). Para usuários de sistemas baseados no Windows, a interface de linha de comando é por padrão baseada em `MS-DOS`, que utiliza comandos e [sintaxe](http://en.wikipedia.org/wiki/Syntax) distinta, mas que comumente pode atingir tarefas similares. Essa lição oferece uma introdução básica ao terminal `bash`, e usuários Windows podem acompanhar instalando shells populares como [Cygwin](https://www.cygwin.com/) ou Git Bash (veja abaixo).
+Existem duas interfaces de linha de comando principais, ou 'shells,' que muitos historiadores e historiadoras digitais utilizam. No macOS[^1] e muitas distribuições Linux, o shell é conhecido como `bash`, ou o 'Bourne-again shell' (*shell renascido*). Para usuários(as) de sistemas baseados no Windows, a interface de linha de comando é por padrão baseada em `MS-DOS`, que utiliza comandos e [sintaxe](http://en.wikipedia.org/wiki/Syntax) (em inglês) distinta, mas que comumente pode atingir tarefas similares. Essa lição oferece uma introdução básica ao terminal `bash`, e usuários Windows podem acompanhá-la instalando shells populares como [Cygwin](https://www.cygwin.com/) ou Git Bash (veja abaixo).
 
-Essa lição utiliza um **[shell Unix](http://en.wikipedia.org/wiki/Unix_shell)**, que é um interpretador de linha de comando que provê uma interface de usuário para o sistema operacional [Unix](http://en.wikipedia.org/wiki/Unix) (em inglês) e similares. Essa lição cobre uma número pequeno de comandos básicos. Ao final desse tutorial, você será capaz de navegar pelo seus sistema de ficheiros e encontrar ficheiros, abri-los, executar tarefas de manipulação de dados básicos tal como combinar e copiar ficheiros, assim como lê-los e fazer edições relativamente simples. Esses comandos constituem o alicerce sobre o qual comandos mais complexos podem ser construídos para se adequar aos seu projeto ou dados de pesquisa. Leitores que busquem um guia de referências que vá além dessa lição são recomendados a ler *Unix and Linux: Visual Quickstart Guide*, 4ª edição (2009) de Deborah S. Ray e Eric J. Ray.
+Essa lição utiliza um **[shell Unix](http://en.wikipedia.org/wiki/Unix_shell)** (em inglês), que é um interpretador de linha de comando que provê uma interface de usuário para o sistema operacional [Unix](http://en.wikipedia.org/wiki/Unix) (em inglês) e similares. Essa lição cobre um pequeno número de comandos básicos. Ao final desse tutorial, você será capaz de navegar pelo seus sistema de ficheiros e encontrar ficheiros, abri-los, executar tarefas de manipulação de dados básicos, tal como combinar e copiar ficheiros, assim como lê-los e fazer edições relativamente simples. Esses comandos constituem o alicerce sobre o qual comandos mais complexos podem ser construídos para se adequarem ao seu projeto ou dados de pesquisa. Leitores(as) que busquem um guia de referências que vá além dessa lição são recomendados a ler *Unix and Linux: Visual Quickstart Guide*, 4ª edição (2009) de Deborah S. Ray e Eric J. Ray.
 
 ## Apenas para Windows: Instalando o Git Bash
 
-Para aqueles com macOS, e a maioria das distribuições Linux, vocês estão com sorte — vocês já possuem um shell bash instalado. Para aqueles com Windows, vocês precisarão de um passo extra e  instalar o Git Bash. Ele pode ser instalado após o download do mais recente 'Full installer' (_instalador completo_) nessa [página](https://git-for-windows.github.io/) (em inglês). Instruções para instalação estão disponíveis no [Open Hatch](https://web.archive.org/web/20190114082523/https://openhatch.org/missions/windows-setup/install-git-bash) (em inglês).
+Para aqueles(as) com macOS, e a maioria das distribuições Linux, vocês estão com sorte — já possuem um shell bash instalado. Para aqueles com Windows, vocês precisarão de um passo extra e instalar o Git Bash. Ele pode ser instalado após o download do mais recente 'Full installer' (_instalador completo_) nessa [página](https://git-for-windows.github.io/) (em inglês). Instruções para instalação estão disponíveis no [Open Hatch](https://web.archive.org/web/20190114082523/https://openhatch.org/missions/windows-setup/install-git-bash) (em inglês).
 
 ## Abrindo o seu Shell
 
-Vamos iniciar o shell. No Windows, execute o Git Bash a partir do diretório em que você o instalou. Você terá que executar como administrador - para tal, clique com o botão direito do mouse e selecione 'Executar como administrados.' No macOS, por padrão o shell está localizado em:
+Vamos iniciar o shell. No Windows, execute o Git Bash a partir do diretório em que você o instalou. Você terá que executar como administrador - para tal, clique com o botão direito do mouse e selecione 'Executar como administrador.' No macOS, por padrão o shell está localizado em:
 
 `Applications -> Utilities -> Terminal`
 
@@ -60,59 +60,59 @@ Quando você o executa, verá esta janela.
 
 {% include figure.html filename="Blank-Terminal.png" caption="Uma tela vazia do terminal em nosso macOS" %}
 
-Você pode querer alterar a aparência padrão de seu terminal, pois os olhos podem se cansar ao olhar repetidamente para texto preto em um fundo branco. Na aplicação padrão do macOS, você pode abrir o menu 'Settings' nas 'Preferences' no Terminal. Clique na guia 'Settings' e altere-a para um novo esquema de cores. Pessoalmente, preferimos algo com um pouco menos de contraste entre o fundo e o texto, já que você estará olhando para isso por muito tempo. 'Novel' é um agradável, assim como o popular conjunto de paletas de cores [Solarized](http://ethanschoonover.com/solarized).Para usuários Windows, um efeito similar pode ser alcançado utilizando a aba `Properties` do Git Bash. Para alcançá-la, clique com o botão direito do mouse em qualquer lugar na barra superior e selecione `Propriedades`.
+Você pode querer alterar a aparência padrão de seu terminal, pois os olhos podem se cansar ao olhar repetidamente para um texto preto em fundo branco. Na aplicação padrão do macOS, você pode abrir o menu 'Settings' nas 'Preferences' no Terminal. Clique na guia 'Settings' e altere-a para um novo esquema de cores. Pessoalmente, preferimos algo com um pouco menos de contraste entre o fundo e o texto, já que você estará olhando para esta tela por muito tempo. 'Novel' é um agradável, assim como o popular conjunto de paleta de cores [Solarized](http://ethanschoonover.com/solarized). Para usuários Windows, um efeito similar pode ser alcançado utilizando a aba `Properties` do Git Bash. Para alcançá-la, clique com o botão direito do mouse em qualquer lugar na barra superior e selecione `Propriedades`.
 
 {% include figure.html filename="Settings.png" caption="A tela de configurações da Aplicação Shell Terminal do macOS" %}
 
 Assim que você estiver satisfeito(a) com a interface, vamos começar.
 
-## Moving Around Your Computer's File System
+## Se Movendo pelo Sistema de Ficheiros do Seu Computador
 
-Se, ao abrir uma janela de comando, vocês está incerto de onde está localizado no sistema de ficheiros do computador, o primeiro paço é encontrar qual diretório você está. Diferentemente de um sistema gráfico, quando num shell você não pode estar em múltiplos diretórios ao mesmo tempo. Quando você abre seu explorador de diretórios em sua área de trabalho, ele está mostrando ficheiros que estão dentro de um diretório. Você pode descobrir em qual diretório você está através do comando `pwd`, que significa "print working directory" (_imprima o diretório de trabalho_) tente digitar:
+Se, ao abrir uma janela do shell, você está incerto de sua localização no sistema de ficheiros do computador, o primeiro paço é encontrar o diretório em que você se encontra. Diferentemente de um sistema gráfico, quando num shell você não pode estar em múltiplos diretórios ao mesmo tempo. Quando abre seu explorador de diretórios em sua área de trabalho, ele está mostrando ficheiros que estão dentro de um diretório. Você pode descobrir em qual diretório está através do comando `pwd`, que significa "print working directory" (_imprima o diretório de trabalho_). Tente digitar
 
 `pwd`
 
-e apertar enter. Se você está em um macOS ou Linux, seu computador provavelmente mostrará `/users/USERNAME` com seu nome no lugar de USERNAME. Por exemplo, O caminho de Ian no macOS é `/users/ianmilligan1/`.
+e apertar Enter. Se você utiliza um macOS, seu computador provavelmente mostrará `/users/USERNAME` com seu nome no lugar de USERNAME. Por exemplo, O caminho de Ian no macOS é `/users/ianmilligan1/`. Em muitas distribuições Linux, você verá algo similar, como `home/USERNAME`.
 
 Aqui é onde você percebe que aqueles utilizando Windows e aqueles utilizando macOS/Linux terão experiências um pouco distintas. No Windows, James está em :
 
 `c/users/jbaker`
 
-Existem pequenas diferenças, mas não tenha medo; uma vez que você esteja movendo e manipulando ficheiros, essas divergências de plataformas podem ficar em segundo plano.
+Existem pequenas diferenças, mas não tenha medo; uma vez que você esteja movendo e manipulando ficheiros, essas divergências de plataformas ficarão em segundo plano.
 
 Para nos orientar, vamos ver uma lista de quais ficheiros estão nesse diretório. Digite
 
 `ls`
 
-e você verá uma lista de cada ficheiro e diretório no interior de sua atual localização. Seu diretório pode estar confuso ou impecável, mas você verá pelo menos algumas localizações familiares. No macOS, por exemplo, você verá `Applications`, `Desktop`, `Documents`, `Downloads`, `Library`, `Pictures`, etc.
+e você verá listado cada ficheiro e diretório no interior de sua atual localização. Seu diretório pode estar confuso ou impecável, mas você verá pelo menos algumas localizações familiares. No macOS, por exemplo, você verá `Applications`, `Desktop`, `Documents`, `Downloads`, `Library`, `Pictures`, etc.
 
-Você pode querer mais informações do que apenas uma lista de ficheiros. Você pode fazer isso ao especificar variadas *flags* para acompanhar nossos comandos básicos. Elas são adições a um comando que provê o computador com um pouco mais de direcionamento sober qual tipo de retorno ou manipulação você pretende. Para acessar uma lista de *flags*, usuários de macOS/Linux podem recorrer ao programa de ajuda integrado. Usuários macOS/Linux podem digitar:
+Você pode querer mais informações do que apenas uma lista de ficheiros. Podemos fazer isso especificando variadas *flags* (bandeiras) para acompanhar nossos comandos básicos. Elas são adições a um comando que provê ao computador um pouco mais de direcionamento sobre qual tipo de retorno ou manipulação você pretende realizar. Para acessar uma lista de *flags*, usuários de macOS/Linux podem recorrer ao programa de ajuda integrado. Basta digitar:
 
 `man ls`
 
 {% include figure.html filename="man-ls.png" caption="A página Manual para o comando LS" %}
 
-Aqui, você vê uma lista dos nomes do comando, as possibilidades de formatação do comando e o que ele faz.   **Muitos deles não farão sentido agora, mas não se preocupe; com o tempo você se ficará mais familiarizado com eles.** Você pode explorar essa página de várias formas: a barra de espaço move uma página abaixo, ou você pode usar as setas para cima e para baixo por todo documento.
+Aqui, você vê uma lista do nome do comando, as possibilidades de formatação do comando e o que ele faz. **Muitos deles não farão sentido agora, mas não se preocupe; com o tempo você se ficará mais familiarizado com eles.** Você pode explorar essa página de várias formas: a barra de espaço move uma página abaixo, ou você pode usar as setas para cima e para baixo por todo documento.
 
 Para sair da página do manual, aperte
 
 `q`
 
-e você será trazido de volta para a linha de comando onde você estava antes de entrar na página do manual.
+e você será trazido(a) de volta para a linha de comando onde estava antes de entrar na página do manual.
 
 Tente explorar a página `man` para o outro comando que aprendeu até agora, `pwd`.
 
-Usuários de Windows podem utilizar o comando `help`, embora esse comando tenha menos recursos do que o `man` no macOS/Linux. Digite `help` para ver a ajuda disponível, e `help pwd` para obter um exemplo da saída do comando.
+Usuários(as) de Windows podem utilizar o comando `help`, embora esse comando tenha menos recursos do que o `man` no macOS/Linux. Digite `help` para ver a ajuda disponível, e `help pwd` para obter um exemplo da saída do comando.
 
-Vamos tentar utilizar algumas da opções que você viu na página `man` para ls. Talvez você queira ver apenas os ficheiros TXT que estão no seu diretório inicial. Digite
+Vamos tentar utilizar algumas das opções que você viu na página `man` para ls. Talvez queira ver apenas os ficheiros TXT que estão no seu diretório inicial. Digite
 
 `ls *.txt`
 
-o que retorna uma lista de ficheiros de texto, se você tiver algum no seu diretório inicial (talvez você não tenha, e tudo bem também). O comando \* é um **wildcard** — significa 'qualquer coisa.' Portanto, nesse caso, você está indicando que qualquer coisa que atenda o padrão:
+o que retornará uma lista de ficheiros de texto, se você tiver algum no seu diretório inicial (talvez você não tenha, e tudo bem também). O comando \* é um **wildcard** (curinga) — significa 'qualquer coisa.' Portanto, nesse caso, você está indicando que qualquer coisa que atenda o padrão
 
 [qualquer_coisa.txt]
 
-será mostrada. Tente diferentes combinações. Se, por exemplo, você possui vários ficheiros no formato `1-Canadian.txt`, `2-Canadian.txt`, e assim por diante, o comando `ls *-Canadian.txt` irá mostrar todos eles mas excluirá todos os outros ficheiros (aqueles que não correspondem ao padrão).
+será mostrada. Tente diferentes combinações. Se, por exemplo, você possui vários ficheiros no formato `1-Canadian.txt`, `2-Canadian.txt`, e assim por diante, o comando `ls *-Canadian.txt` mostrará todos eles mas excluirá todos os outros ficheiros (aqueles que não correspondem ao padrão).
 
 Digamos que você quer mais informações. Naquela longa página `man`, você viu uma opção que pode ser útil:
 
@@ -122,45 +122,45 @@ Logo, se você digitar
 
 `ls -l`
 
-O computador retornará uma lista longa de ficheiros que contém informações similares ao que você encontraria no seu explorador de ficheiros: o tamanho do ficheiro em bites, a data de sua criação ou última modificação, e o nome do ficheiro. Entretanto, isso pode ser um pouco confuso: você vê que um ficheiro test.html possui '620' bites. Em linguagem comum, você está mais acostumado a unidades de medida de como bytes, kilobytes, megabytes e gigabytes.
+o computador retornará uma lista longa de ficheiros contendo informações similares ao que você encontraria no seu explorador de ficheiros: seu tamanho em bites, a data de sua criação ou última modificação, e o nome do ficheiro. Entretanto, isso pode ser um pouco confuso: você vê que um ficheiro test.html possui '620' bits. Comumente, você está mais acostumado a unidades de medida de como bytes, kilobytes, megabytes e gigabytes.
 
 Felizmente, existe outra *flag*:
 
->     -h      When used with the -l option, use unit suffixes: Byte, Kilobyte,
->             Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number
->             of digits to three or less using base 2 for sizes.
+>     -h      Quando utilizado com a opção -l, utiliza sufixos de unidade: Byte, Kilobyte, 
+>             Megabyte, Gigabyte, Terabyte e Petabyte, a fim de reduzir o número
+>             de dígitos para três ou menos usando a base 2 para tamanhos.
 
 Quando você quer usar duas *flags*, você pode executá-las junto. Então, ao digitar
 
 `ls -lh`
 
-você receberá um resultado em um formato legível para humanos; você descobre que aqueles 6020 bits também é 5.9KB, que outro ficheiro tem 1 megabyte, e assim por diante.
+receberá um resultado em um formato legível para humanos; você descobre que aqueles 620 bits correspondem a 5.9KB, que outro ficheiro tem 1 megabyte, e assim por diante.
 
-Essas opções são *muito* importantes. Em outras lições do *Programming Historian*, você as encontrará. [Wget](/lessons/applied-archival-downloading-with-wget), [MALLET](/lessons/topic-modeling-and-mallet), e [Pandoc](pt/licoes/autoria-sustentavel-texto-simples-pandoc-markdown) usam a mesma sintaxe. Felizmente, você não precisa memorizar a sintaxe; em vez disso, mantenha essas lições à mão para que você possa dar uma olhada rápida se precisar ajustar alguma coisa. Essas lições podem ser feitas em qualquer ordem.
+Essas opções são *muito* importantes. Elas aparecem em outras lições do *Programming Historian*. [Wget](/lessons/applied-archival-downloading-with-wget), [MALLET](/lessons/topic-modeling-and-mallet), e [Pandoc](pt/licoes/autoria-sustentavel-texto-simples-pandoc-markdown) usam a mesma sintaxe. Felizmente, você não precisa memorizar a sintaxe; em vez disso, mantenha essas lições à mão para que possa dar uma olhada rápida se precisar ajustar alguma coisa. Essas lições podem ser feitas em qualquer ordem.
 
-Agora você passou um bom tempo em seu diretório inicial. Vamos para outro lugar. Você pode fazer isso através do comando `cd` ou *Change Directory* (Mudar diretório).
+Agora, você passou um bom tempo em seu diretório inicial. Vamos para outro lugar. Você pode fazer isso através do comando `cd` ou *Change Directory* (Mudar diretório).
 
 Se você digitar
 
 `cd Área\ de\ Trabalho/`[^2]
 
-Você está agora em sua Área de Trabalho. Isso é similar a clicar duas vezes no ícone da Área de Trabalho no seu explorado de ficheiros. Para verificar novamente, digite `pwd` e você verá algo como:
+você está agora em sua Área de Trabalho. Isso é similar a clicar duas vezes no ícone da Área de Trabalho no seu explorado de ficheiros. Para verificar novamente, digite `pwd` e você verá algo como:
 
 `/Users/ianmilligan1/Área\ de\ Trabalho/`
 
-Tente experimentar um pouco com esses: explore seu diretório atual com o comando `ls`.
+Tente experimentar um pouco nessa localização: explore seu diretório atual com o comando `ls`.
 
-Se você quiser voltar, você pode digitar
+Se você quiser voltar, pode digitar
 
 `cd ..`
 
-Isso nos movimenta um diretório 'acima', colocando-nos de volta em `/Users/ianmilligan1/`. Se você estiver completamente perdido, o comando
+Isso nos movimenta um diretório 'acima', colocando-nos de volta em `/users/ianmilligan1/`. Se você estiver completamente perdido, o comando
 
 `cd --`
 
 lhe trará de volta ao diretório inicial, exatamente onde você começou.
 
-Tente explorar: visite seu diretório documentos, imagens,pastas que você tenha na sua área de trabalho. Se acostume a se movimentar entre os diretórios. Imagine que você está navegando por uma [estrutura de árvore](http://en.wikipedia.org/wiki/Tree_structure) (em inglês). Se você está na área de trabalho, você não será capaz de `cd Documentos` pois este é um 'filho' de seu diretório inicial, ao passo que sua Área de Trabalho é 'irmã' de sua pasta Documentos. para se mover para uma irmã, você deve retornar ao pai comum. Para fazer isso, você deverá retornar para o seu diretório inicial (`cd ..`) e então se mover para `cd Documentos`.
+Tente explorar um pouco mais: visite seu diretório documentos, imagens, pastas que você tenha na sua área de trabalho. Se acostume a se movimentar entre os diretórios. Imagine que você está navegando por uma [estrutura de árvore](http://en.wikipedia.org/wiki/Tree_structure) (em inglês). Se você está na área de trabalho, você não será capaz de `cd Documentos` pois este é um 'filho' de seu diretório inicial, ao passo que sua Área de Trabalho é 'irmã' de sua pasta Documentos. para se mover para uma irmã, você deve retornar ao pai comum. Para fazer isso, você deverá retornar para o seu diretório inicial (`cd ..`) e então se mover para `cd Documentos`.
 
 Ser capaz de navegar no seus sistema de ficheiros utilizando o shell bash é muito importante para muitas das lições no *Programming Historian*. À medida que você se sentir mais confortável, logo se verá pulando diretamente para o diretório que deseja. No nosso caso, de qualquer lugar em nosso sistema, você pode digitar
 
