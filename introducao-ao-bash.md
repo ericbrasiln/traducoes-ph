@@ -1,7 +1,7 @@
 ---
 title: Introdução à Linha de Comando Bash
 layout: lesson
-date: 2023-05-29
+date: 2014-09-20
 authors:
 - Ian Milligan
 - James Baker
@@ -18,17 +18,11 @@ review-ticket:
 activity: transforming
 topics: [data-manipulation, get-ready]
 abstract: "Essa lição lhe ensinará como enviar comandos utilizando uma interface de linha de comando, ao invés de uma interface gráfica. Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho, como historiadores(as) digitais. Permitem mais detalhamento ao rodar alguns programas, visto que você pode adicionar modificações para especificar exatamente como deseja que um programa seja executado. Além do mais, podem ser facilmente automatizados através de scripts, que são basicamente conjuntos de comandos baseados em texto."
-next: research-data-with-unix
-redirect_from: /lessons/intro-to-bash
 avatar_alt: Soldiers in antique armor with spears
 doi: 
 ---
 
 {% include toc.html %}
-
-
-
-
 
 # Introdução à Linha de Comando Bash
 
@@ -40,9 +34,9 @@ Muitas das lições do *Programming Historian* exigem que você insira comandos 
 
 Interfaces de linha de comando possuem vantagens para usuários de computador que precisam de maior precisão em seu trabalho -- tal como historiadores(as) digitais. Elas permitem maior detalhamento quando executando alguns programas, ao passo que você pode adicionar modificações para especificar exatamente como deseja que o programa seja executado. Além do mais, elas podem ser facilmente automatizadas através de [scripts](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/chap_01.html), que são basicamente conjuntos de comandos baseados em texto.
 
-Existem duas interfaces de linha de comando principais, ou 'shells,' que muitos historiadores e historiadoras digitais utilizam. No macOS[^1] e muitas distribuições Linux, o shell é conhecido como `bash`, ou o 'Bourne-again shell' (*shell renascido*). Para usuários(as) de sistemas baseados no Windows, a interface de linha de comando é por padrão baseada em `MS-DOS`, que utiliza comandos e [sintaxe](http://en.wikipedia.org/wiki/Syntax) (em inglês) distinta, mas que comumente pode atingir tarefas similares. Essa lição oferece uma introdução básica ao terminal `bash`, e usuários Windows podem acompanhá-la instalando shells populares como [Cygwin](https://www.cygwin.com/) ou Git Bash (veja abaixo).
+Existem duas interfaces de linha de comando principais, ou 'shells,' que muitos historiadores e historiadoras digitais utilizam. No macOS[^1] e muitas distribuições Linux, o shell é conhecido como `bash`, ou o 'Bourne-again shell' (*shell renascido*). Para usuários(as) de sistemas baseados no Windows, a interface de linha de comando é por padrão baseada em `MS-DOS`, que utiliza comandos e [sintaxe](https://pt.wikipedia.org/wiki/Sintaxe) distinta, mas que comumente pode atingir tarefas similares. Essa lição oferece uma introdução básica ao terminal `bash`, e usuários Windows podem acompanhá-la instalando shells populares como [Cygwin](https://www.cygwin.com/) ou Git Bash (veja abaixo).
 
-Essa lição utiliza um **[shell Unix](http://en.wikipedia.org/wiki/Unix_shell)** (em inglês), que é um interpretador de linha de comando que provê uma interface de usuário para o sistema operacional [Unix](http://en.wikipedia.org/wiki/Unix) (em inglês) e similares. Essa lição cobre um pequeno número de comandos básicos. Ao final desse tutorial, você será capaz de navegar pelo seus sistema de ficheiros e encontrar ficheiros, abri-los, executar tarefas de manipulação de dados básicos, tal como combinar e copiar ficheiros, assim como lê-los e fazer edições relativamente simples. Esses comandos constituem o alicerce sobre o qual comandos mais complexos podem ser construídos para se adequarem ao seu projeto ou dados de pesquisa. Leitores(as) que busquem um guia de referências que vá além dessa lição são recomendados a ler *Unix and Linux: Visual Quickstart Guide*, 4ª edição (2009) de Deborah S. Ray e Eric J. Ray.
+Essa lição utiliza um **[shell do Unix](https://pt.wikipedia.org/wiki/Shell_do_Unixl)**, que é um interpretador de linha de comando que provê uma interface de usuário para o sistema operacional [Unix](https://pt.wikipedia.org/wiki/Unix) e similares. Essa lição cobre um pequeno número de comandos básicos. Ao final desse tutorial, você será capaz de navegar pelo seus sistema de ficheiros e encontrar ficheiros, abri-los, executar tarefas de manipulação de dados básicos, tal como combinar e copiar ficheiros, assim como lê-los e fazer edições relativamente simples. Esses comandos constituem o alicerce sobre o qual comandos mais complexos podem ser construídos para se adequarem ao seu projeto ou dados de pesquisa. Leitores(as) que busquem um guia de referências que vá além dessa lição são recomendados a ler *Unix and Linux: Visual Quickstart Guide*, 4ª edição (2009) de Deborah S. Ray e Eric J. Ray.
 
 ## Apenas para Windows: Instalando o Git Bash
 
@@ -160,9 +154,9 @@ Isso nos movimenta um diretório 'acima', colocando-nos de volta em `/users/ianm
 
 lhe trará de volta ao diretório inicial, exatamente onde você começou.
 
-Tente explorar um pouco mais: visite seu diretório documentos, imagens, pastas que você tenha na sua área de trabalho. Se acostume a se movimentar entre os diretórios. Imagine que você está navegando por uma [estrutura de árvore](http://en.wikipedia.org/wiki/Tree_structure) (em inglês). Se você está na área de trabalho, você não será capaz de `cd Documentos` pois este é um 'filho' de seu diretório inicial, ao passo que sua Área de Trabalho é 'irmã' de sua pasta Documentos. para se mover para uma irmã, você deve retornar ao pai comum. Para fazer isso, você deverá retornar para o seu diretório inicial (`cd ..`) e então se mover para `cd Documentos`.
+Tente explorar um pouco mais: visite seu diretório documentos, imagens, pastas que você tenha na sua área de trabalho. Se acostume a se movimentar entre os diretórios. Imagine que você está navegando por uma [topologia em árvore](https://pt.wikipedia.org/wiki/Topologia_em_%C3%A1rvore). Se você está na área de trabalho, você não será capaz de `cd Documentos` pois este é um 'filho' de seu diretório inicial, ao passo que sua Área de Trabalho é 'irmã' de sua pasta Documentos. para se mover para uma irmã, você deve retornar ao pai comum. Para fazer isso, você deverá retornar para o seu diretório inicial (`cd ..`) e então se mover para `cd Documentos`.
 
-Ser capaz de navegar no seus sistema de ficheiros utilizando o shell bash é muito importante para muitas das lições no *Programming Historian*. À medida que você se sentir mais confortável, logo se verá pulando diretamente para o diretório que deseja. No nosso caso, de qualquer lugar em nosso sistema, você pode digitar
+Ser capaz de navegar no seus sistema de ficheiros utilizando o shell bash é muito importante para muitas das lições no *Programming Historian*. À medida que você se sentir mais confortável, logo se verá pulando diretamente para o diretório que deseja. No nosso caso, de qualquer lugar em nosso sistema, poderíamos digitar
 
 `cd /users/ianmilligan1/mallet-2.0.7`
 
@@ -176,7 +170,7 @@ Por fim, tente
 
 `open .`
 
-no macOS ou
+no macOS e Linux ou
 
 `explorer .`
 
@@ -184,23 +178,23 @@ No Windows. Esse comando abrirá seu GUI no diretório atual. Certifique-se de d
 
 ## Interagindo com ficheiros
 
-Assim como navegar pelos diretórios, você pode interagir com ficheiros na linha de comando: você pode lê-los, abri-los, executá-los, e mesmo editá-los, geralmente sem nunca precisar sair da interface. Há algum debate sobre por que alguém faria isso. O principal motivo é a experiência fluida de trabalhar na linha de comando: você nunca precisa pegar o mouse ou tocar no *touchpad* e, embora tenha uma curva de aprendizado acentuada, pode eventualmente se tornar um ambiente de escrita único. Além disso, muitos programas exigem que você use a linha de comando para opera-los. Como você usará programas na linha de comando, muitas vezes pode ser mais rápido fazer pequenas edições sem alternar para um programa separado. Para alguns desses argumentos, veja ["Why, oh WHY, do those #?@! nutheads use vi?"](http://www.viemu.com/a-why-vi-vim.html) de Jon Beltran de Heredia.
+Assim como navegar pelos diretórios, você pode interagir com ficheiros na linha de comando: você pode lê-los, abri-los, executá-los, e mesmo editá-los, geralmente sem nunca precisar sair da interface. Há algum debate sobre por que alguém faria isso. O principal motivo é a experiência fluida de trabalhar na linha de comando: você nunca precisa pegar o mouse ou tocar o *touchpad* e, embora tenha uma curva de aprendizado acentuada, pode eventualmente se tornar um ambiente de escrita único. Além disso, muitos programas exigem que você use a linha de comando para opera-los. Como você usará programas na linha de comando, muitas vezes pode ser mais rápido fazer pequenas edições em ficheiros sem a necessidade de alternar para um outro programa. Para alguns desses argumentos, veja ["Why, oh WHY, do those #?@! nutheads use vi?"](http://www.viemu.com/a-why-vi-vim.html) de Jon Beltran de Heredia.
 
-Aqui estão algumas maneiras básicas de interagir com arquivos.
+Aqui estão algumas maneiras básicas de interagir com ficheiros.
 
-Primeiro, você pode criar um novo diretório para lidar com ficheiros de texto. Vamos criá-lo em sua área de trabalho, por conveniência. Você sempre movê-lo posteriormente. Navegue até sua Área de Trabalho, e digite:
+Primeiro, você pode criar um novo diretório para lidar com ficheiros de texto. Vamos criá-lo em sua área de trabalho, por conveniência. Você sempre pode movê-lo posteriormente. Navegue até sua Área de Trabalho, e digite:
 
 `mkdir ProgHist-Text`
 
-Isto cria um diretório com o nome, como você pode imaginar, 'ProgHist-Text'. Em geral, é bom evitar colocar espaços nos nomes de arquivos e diretórios ao usar a linha de comando (existem soluções alternativas, é claro, mas essa abordagem é mais simples). Você pode verificar na sua área de trabalho se funcionou. Agora, acesse esse diretório (lembre-se, seria `cd ProgHist-Text`).
+Esse comando cria um diretório com o nome, como você pode imaginar, 'ProgHist-Text'. Em geral, é bom evitar colocar espaços nos nomes de arquivos e diretórios ao usar a linha de comando (existem soluções alternativas, é claro, mas essa abordagem é mais simples). Você pode verificar na sua área de trabalho se funcionou. Agora, acesse esse diretório (lembre-se, o comando seria `cd ProgHist-Text`).
 
-Mas espere! Há um truque para tornar as coisas um pouco mais rápidas. Vá para o diretório anterior (`cd ..` - que o levará de volta para a área de trabalho). Para navegar até o diretório `ProgHist-Text`, você poderia digitar `cd ProgHist-Text`. Alternativamente, você poderia digitar cd Prog e depois pressionar a tecla Tab. Você notará que a interface completa a linha para `cd ProgHist-Text`. **Pressionar a tecla tab a qualquer momento no shell irá tentar autocompletar a linha com base nos ficheiros ou subdiretórios no diretório atual. No entanto, isso é sensível a maiúsculas e minúsculas. No exemplo anterior, `cd prog` não seria autocompletado para `ProgHist-Text`. Quando dois ou mais ficheiros têm os mesmos caracteres, o autocompletar preencherá apenas até o primeiro ponto de diferença. Encorajamos o uso desse método ao longo da lição para ver como ele funciona.**
+Mas espere! Há um truque para tornar as coisas um pouco mais rápidas. Vá para o diretório anterior (`cd ..` - o que o levará de volta para a área de trabalho). Para navegar até o diretório `ProgHist-Text`, você poderia digitar `cd ProgHist-Text`. Alternativamente, você poderia digitar cd Prog e depois pressionar a tecla Tab. Você notará que a interface completa automaticamente a linha para `cd ProgHist-Text`. **Pressionar a tecla tab a qualquer momento no shell irá tentar autocompletar a linha com base nos ficheiros ou subdiretórios no diretório atual. No entanto, é sensível a maiúsculas e minúsculas. No exemplo anterior, `cd prog` não seria autocompletado para `ProgHist-Text`. Quando dois ou mais ficheiros têm os mesmos caracteres, o autocompletar preencherá apenas até o primeiro ponto de diferença. Encorajamos o uso desse método ao longo da lição para ver como ele funciona.**
 
-Agora você precisa encontrar um ficheiro de texto simples para nos ajudar com o exemplo. Porque não usar um livro que sabemos ser longo, tal como o épico *Guerra e Paz* (em inglês), de Leon Tosltoy? O ficheiro de texto está disponível no [Projeto Gutenberg](http://www.gutenberg.org/ebooks/2600). Se você já instalou o [wget](/lessons/applied-archival-downloading-with-wget) (em inglês), você pode simplesmente digitar
+Agora você precisa encontrar um ficheiro de texto simples para nos ajudar com o exemplo. Porque não usar um livro que sabemos ser longo, tal como o épico *Guerra e Paz* (em inglês), de Leon Tolstoy? O ficheiro de texto está disponível no [Projeto Gutenberg](http://www.gutenberg.org/ebooks/2600). Se você já instalou o [wget](/lessons/applied-archival-downloading-with-wget) (em inglês), você pode simplesmente digitar
 
 `wget http://www.gutenberg.org/files/2600/2600-0.txt`
 
-Se você ainda não tem o wget instalado, faça o download do do texto você mesmo utilizando seu navegador. Vá até o link acima, e, em seu navegador, use a opção 'Salvar página como..' no 'menu arquivo'. Salve no seu novo diretório 'ProgHist-Text'. Agora, quando digitar
+Se você ainda não tem o wget instalado, faça o download do texto utilizando seu navegador. Vá até o link acima, e, em seu navegador, use a opção 'Salvar página como..' no 'menu arquivo'. Salve no seu novo diretório 'ProgHist-Text'. Agora, quando digitar
 
 `ls -lh`
 
@@ -208,11 +202,11 @@ você verá algo como
 
 >> -rw-r--r--+ 1 ianmilligan1  staff   3.1M  1 May 10:03 2600-0.txt
 
-Você pode ler o texto no interior desse ficheiro de algumas maneiras diferentes. Primeiro, você pode informar nosso computador que você quer lê-lo utilizando o programa padrão que você usa para abrir ficheiros de texto. Por padrão, deve ser o TextEdit no macOS ou Notepad no Windows. Para abrir um ficheiro, digite
+Você pode ler o texto no interior desse ficheiro de algumas maneiras diferentes. Primeiro, pode informar ao computador que você quer lê-lo utilizando o programa padrão que você usa para abrir ficheiros de texto. Por padrão, deve ser o TextEdit no macOS ou Notepad no Windows. Para abrir um ficheiro, digite
 
 `open 2600-0.txt`
 
-no macOS, ou
+no macOS e Linux, ou
 
 `explorer 2600-0.txt`
 
@@ -220,65 +214,65 @@ no Windows.
 
 Isso seleciona o programa padrão para abrir aquele tipo de ficheiro, e o abre.
 
-No entanto, muitas vezes você deseja apenas trabalhar na linha de comando sem sair dela. Você também pode ler arquivos dentro desse ambiente. Para experimentar isso, digite:
+No entanto, muitas vezes você deseja apenas trabalhar na linha de comando sem sair dela. Você também pode ler arquivos dentro desse ambiente. Para experimentar, digite:
 
-`cat memoriasBras_djvu2600-0.txt`
+`cat 2600-0.txt`
 
-A janela do terminal irrompe onde *Guerra e Paz* se desenrola em cascada. Isso é ótimo, em teoria, mas você realmente consegue entender essa quantidade de texto? Em vez disso, você pode querer apenas examinar o primeiro ou o último *bit* do arquivo.
+A janela do terminal irrompe e *Guerra e Paz* se desenrola em cascata. Isso é ótimo, em teoria, mas você realmente consegue entender essa quantidade de texto? Em vez disso, você pode querer apenas examinar o primeiro ou o último *bit* do arquivo.
 
 `head 2600-0.txt`
 
-Fornece uma visão das primeiras dez linhas, enquanto
+fornece uma visão das primeiras dez linhas, enquanto
 
 `tail 2600-0.txt `
 
 fornece uma perspectiva das últimas dez linhas. Esta é uma boa maneira de determinar rapidamente o conteúdo do ficheiro. Você poderia incluir um comando para alterar a quantidade de linhas mostradas: `head -20 2600-0.txt`, por exemplo, mostraria as vinte primeiras linhas.
 
-Você também deseja mudar o nome do ficheiro para algo mais descritivo. Você pode 'mover' para um novo nome digitante
+Você também deseja mudar o nome do ficheiro para algo mais descritivo. Você pode 'mover' para um novo nome digitando
 
 `mv 2600-0.txt tolstoy.txt`
 
-Posteriormente, ao executar um comando `ls`, você verá que agora é `machado.txt`. Se você quisesse duplicá-lo, também poderia executar o comando copy digitando
+Posteriormente, ao executar um comando `ls`, você verá que agora é `tolstoy.txt`. Se você quisesse duplicá-lo, também poderia executar o comando de cópia digitando
 
 `cp 2600-0.txt tolstoy.txt`
 
 Você revisitará esses comandos em breve.
 
-Agora que você utilizou diversos comandos novos, é hora de mais um truque. Pressione a seta para cima no seu teclado. Observe que `cp 2600-0.txt tolstoy.txt` aparece antes do seu cursor. Você pode continuar pressionando a seta para cima para percorrer seus comandos anteriores. A seta para baixo retorna ao seu comando mais recente.
+Agora que você utilizou diversos comandos novos, é hora de mais um truque. Pressione a seta para cima no seu teclado. Observe que `cp 2600-0.txt tolstoy.txt` aparece antes do seu cursor. Você pode continuar pressionando a seta para cima para percorrer os comandos anteriores. A seta para baixo retorna ao seu comando mais recente.
 
-Após ter lido e renomeado vários ficheiros, você pode desejar reunir todos os seus textos em um único ficheiro. Para combinar. ou concatenar, dois ou mais ficheiros, você pode usar o comando `cat`. Primeiro, vamos duplicar o ficheiro Machado ( `cp tolstoy.txt tolstoy2.txt`). Agora que você tem duas cópias do *Guerra e Paz*, vamos colocá-los juntos para fazer um livro **ainda mais longo**.
+Após ter lido e renomeado vários ficheiros, você pode desejar reunir todos os seus textos em um único ficheiro. Para combinar. ou concatenar, dois ou mais ficheiros, você pode usar o comando `cat`. Primeiro, vamos duplicar o ficheiro Tolstoy (`cp tolstoy.txt tolstoy2.txt`). Agora que você tem duas cópias do *Guerra e Paz*, vamos colocá-los juntos para fazer um livro **ainda mais longo**.
 
 Para combinar, ou concatenar, dois ou mais ficheiros use o comando `cat`. Digite
 
 `cat tolstoy.txt tolstoy2.txt`
 
-e aperte Enter. Isso irá imprimir na tela, ou mostrar, os ficheiros combinados no interior do shell. Contudo, ele é longo demais para ser lido nessa janela! Felizmente, utilizando o comando `>`, você pode enviar o resultado para um novo ficheiro, ao invés da visualização no terminal. Digita
+e aperte Enter. Isso irá imprimir na tela, ou mostrar, os ficheiros combinados no interior do shell. Contudo, ele é longo demais para ser lido nessa janela! Felizmente, utilizando o comando `>`, você pode enviar o resultado para um novo ficheiro, ao invés da visualização no terminal. Digite
 
 `cat tolstoy.txt tolstoy2.txt > tolstoy-em-dobro.txt`.
 
-Agora, quando você digitar `ls` você verá `tolstoy-em-dobro.txt` listado em seu diretório.
+Agora, quando você digitar `ls` verá `tolstoy-em-dobro.txt` listado em seu diretório.
 
 Quando combinando mais do que dois ficheiros, usar um _wildcard_ pode ajudar a evitar escrever cada nome de ficheiro individualmente. Como você viu anteriormente, `*` é um espaço reservado para zero ou mais caracteres ou números. Então, se você digitar
 
 `cat *.txt > tudo-junto.txt`
 
-e apertar Enter, uma combinação de todos os ficheiros .txt no diretório atual são combinados em ordem alfabética como `tudo-junto.txt`. Isto pode ser muito útil se você precisa combinar um número elevado de pequenos ficheiros no interior um diretório para que você possa trabalhar com eles em um programa de análise de texto. Outra _wildcard_ que vale a pena ser memorizada é `?` que é um espaço reservado para um único caractere ou número.
+e apertar Enter, uma combinação de todos os ficheiros .txt no diretório atual são combinados em ordem alfabética como `tudo-junto.txt`. Isto pode ser muito útil se você precisa combinar um número elevado de pequenos ficheiros no interior de um diretório para trabalhar com eles em um programa de análise de texto. Outra _wildcard_ que vale a pena ser memorizada é `?` que é um espaço reservado para um único caractere ou número.
 
 ## Editando ficheiros de texto diretamente na linha de comando
 
-Se você quiser ler um arquivo inteiro sem sair da linha de comando, você pode iniciar o [vim](http://en.wikipedia.org/wiki/Vim_%28text_editor%29) (em inglês). O Vim é um editor de texto muito poderoso, perfeito para usar com programas como [Pandoc](http://johnmacfarlane.net/pandoc/) para fazer processamento de texto ou para editar seu código sem ter que mudar para outro programa. O melhor de tudo é que ele vem incluído no bash tanto no macOS quanto no Windows. O Vim tem uma curva de aprendizado bastante acentuada, então vamos apenas abordar alguns pontos menores.
+Se você quiser ler um arquivo inteiro sem sair da linha de comando, você pode iniciar o [vim](https://pt.wikipedia.org/wiki/Vim). O Vim é um editor de texto muito poderoso, perfeito para usar com programas como [Pandoc](http://johnmacfarlane.net/pandoc/), para fazer processamento de texto ou para editar seu código sem ter que mudar para outro programa. O melhor de tudo é que ele vem incluído no bash tanto no macOS e Linux quanto no Windows. O Vim tem uma curva de aprendizado bastante acentuada, então vamos apenas abordar alguns pontos menores.
 
 Digite
 
 `vim tolstoy.txt`
 
-Você verá o vim ganhar vida diante de você, um editor de texto baseado em linha de comando.
+Você verá o Vim ganhar vida diante de você, um editor de texto baseado em linha de comando.
 
 {% include figure.html filename="vim.png" caption="Vim" %}
 
-Se você realmente quer se aprofundar no Vim, há um [bom guia do Vim](http://vimdoc.sourceforge.net/htmldoc/quickref.html) (em inglês) disponível.
+Se você realmente quer se aprofundar no Vim, há um [bom guia](http://vimdoc.sourceforge.net/htmldoc/quickref.html) (em inglês) disponível.
 
-Utilizar o Vim para ler ficheiros é relativamente simples. Você pode utilizar as setas para navegar e poderia teoricamente ler *Guerra e Paz* através da linha de comando (deveriam receber uma prêmio por fazer isso.). Alguns comandos básicos de navegação rápidos são os seguintes:
+Utilizar o Vim para ler ficheiros é relativamente simples. Você pode utilizar as setas para navegar e poderia, teoricamente, ler *Guerra e Paz* através da linha de comando (deveria receber uma prêmio por fazer isso.). Alguns comandos básicos de navegação rápidos são os seguintes:
 
 `Ctrl+F` (ou seja, pressionar e segurar a tecla 'Ctrl' e pressionar a tecla F) irá lhe mover uma página abaixo (`Shift+SetaParaCima` no Windows).
 
@@ -286,7 +280,7 @@ Utilizar o Vim para ler ficheiros é relativamente simples. Você pode utilizar 
 
 Se você deseja se mover rapidamente para o final de uma linha, pode pressionar: `$`, e para se mover para o início de uma linha, `0`. Você também pode se mover entre sentenças digitando `)` (para frente) ou `(` (para trás). Para parágrafos, use `}` e `{`. Como você está fazendo tudo com o teclado, em vez de ter que segurar a tecla de seta para se mover em um documento, isso permite que você se mova rapidamente para frente e para trás.
 
-Vamos rolar até o topo e fazer uma alteração mínima, como adicionar um campo `Leitor` no cabeçalho. Mova o cursor entre **Autor:** (_Author:_ em inglês) e **Tradutores:** (_Translators:_ em inglês), assim:
+Vamos rolar até o topo e fazer uma alteração mínima, como adicionar um campo `Leitor` (_Reader_) no cabeçalho. Mova o cursor entre **Autor:** (_Author:_ em inglês) e **Tradutores:** (_Translators:_ em inglês), assim:
 
 {% include figure.html filename="about-to-insert.png" caption="Pronto para inserir um campo" %}
 
@@ -304,19 +298,19 @@ Isso significa que você está no modo de inserção. Agora você pode digitar e
 
 Quando terminar, pressione `ESC` para retornar ao modo de leitura.
 
-Para sair do Vim ou salvar alterações, você precisa inserir uma série de comandos. Pressione `:` e você será levado para a linha de entrada de comandos do Vim. Você pode digitar vários comandos aqui. Se você quiser salvar o ficheiro, digite `w` para 'escrever' (_write_ em inglês) o ficheiro. Se você executar esse comando, verá:
+Para sair do Vim ou salvar alterações, você precisa inserir uma série de comandos. Pressione `:` e você será levado para a linha de entrada de comandos do Vim. Você pode digitar vários comandos aqui. Se você quiser salvar o ficheiro, digite `w` para 'escrever' (_write_ em inglês). Se você executar esse comando, verá algo como:
 
 >> "tolstoy.txt" [dos] 65009L, 3291681C written
 
 {% include figure.html filename="after-writing.png" caption="Após Escrever o Ficheiro, com nossas Pequenas Alterações" %}
 
-Se você quiser sair, digite `:` novamente e depois `q`. Isso o levará de volta à linha de comando. Assim como no restante do bash, você também poderia ter combinado os dois comandos. Pressionar `:` e depois digitar `wq` teria salvado o ficheiro e depois saído do Vim. Ou, se você quisesse sair **sem** salvar, `q!` teria encerrado o vim e substituído a preferência padrão para salvar suas alterações.
+Se você quiser sair, digite `:` novamente e depois `q`. Isso o levará de volta à linha de comando. Assim como no restante do bash, você também poderia ter combinado os dois comandos. Pressionar `:` e depois digitar `wq` teria salvado o ficheiro e depois saído do Vim. Ou, se você quisesse sair **sem** salvar, `q!` teria encerrado o Vim e substituído a preferência padrão para salvar suas alterações.
 
 Vim é diferente do que você está acostumado(a) e exigirá mais esforço e prática para se tornar fluente nele. Mas se você estiver fazendo pequenos ajustes em ficheiros, é uma boa maneira de começar. À medida que você se sentir mais confortável, talvez até comece a escrever trabalhos finais de disciplinas com ele, aproveitando o poder das [notas de rodapé e formatação do Pandoc e Markdown](/pt/licoes/autoria-sustentavel-texto-simples-pandoc-markdown).
 
 ## Mover, Copiar e Deletar Ficheiros
 
-Digamos que você terminou este diretório e gostaria de mover `tolstoy.txt` para outro lugar. Primeiro, você deve criar uma cópia de backup. O shell é bastante implacável com erros, e o backup é ainda mais importante do que com GUIs. Se você excluir algo aqui, não haverá lixeira para retirá-lo. Para criar um backup, você pode digitar
+Digamos que você concluiu o trabalho neste diretório e gostaria de mover `tolstoy.txt` para outro lugar. Primeiro, você deve criar uma cópia de backup. O shell é bastante implacável com erros, e o backup é ainda mais importante do que em GUIs. Se você excluir algo aqui, não haverá lixeira para retirá-lo. Para criar um backup, você pode digitar
 
 `cp tolstoy.txt tolstoy-backup.txt`
 
@@ -329,51 +323,51 @@ Para copiar o arquivo `tolstoy.txt`, você tem algumas opções diferentes. Voc�
 
 Nesse caso, o comando
 
-`cp /users/ianmilligan1/Área\ de\ Trabalho/proghist-text/tolstoy.txt /users/ianmilligan1/Área\ de\ Trabalho/proghist-dest/`
+`cp /users/ianmilligan1/Área\ de\ Trabalho/ProgHist-Text/tolstoy.txt /users/ianmilligan1/Área\ de\ Trabalho/proghist-dest/`
 
-copiará Machado do primeiro diretório para o segundo. Você terá que inserir seu próprio nome de usuário no lugar de 'ebn'. Isso significa que agora você tem três cópias do romance em seu computador. O original, o backup e a nova cópia no segundo diretório. Se você quiser **mover** o ficheiro, ou seja, não deixar uma cópia para trás, você pode rodar o comando novamente, trocando `cp` por `mv`; não vamos fazer isso ainda.
+copiará Tolstoy do primeiro diretório para o segundo. Você terá que inserir seu próprio nome de usuário no lugar de 'ianmilligan1'. Isso significa que agora você tem três cópias do romance em seu computador. O original, o backup e a nova cópia no segundo diretório. Se você quiser **mover** o ficheiro, ou seja, não deixar uma cópia para trás, você pode executar o comando novamente, trocando `cp` por `mv`; não vamos fazer isso ainda.
 
 Você também pode copiar vários ficheiros com um único comando. Se você deseja copiar **ambos** o ficheiro original e o ficheiro de backup, você pode usar o comando de _wildcard_ (curinga).
 
-`cp /users/ianmilligan1/Área\ de\ Trabalho/proghist-text/*.txt /users/ianmilligan1/Área\ de\ Trabalho/proghist-dest/`
+`cp /users/ianmilligan1/Área\ de\ Trabalho/ProgHist-Text/*.txt /users/ianmilligan1/Área\ de\ Trabalho/proghist-dest/`
 
 Este comando copia **todos** os arquivos de texto do diretório de origem para o diretório de destino.
 
-Se você estiver no diretório para o qual deseja mover as coisas, não é necessário digitar toda a estrutura do diretório. Vamos fazer dois exemplos rápidos. Altere seu diretório para o diretório `ProgHist-text`. A partir deste local, se você quiser copiar esses dois arquivos para `proghist-dest`, este comando funcionará:
+Se você estiver no diretório para o qual deseja mover as coisas, não é necessário digitar toda a estrutura do diretório. Vamos fazer dois exemplos rápidos. Altere seu diretório para o diretório `ProgHist-Text`. A partir deste local, se você quiser copiar esses dois arquivos para `proghist-dest`, este comando funcionará:
 
 `cp *.txt /users/ianmilligan1/Área\ de\ Trabalho/proghist-dest/` (no macOS e Linux, substitua o diretório no Windows).
 
 Como alternativa, se você estivesse no diretório `proghist-dest`, este comando funcionaria:
 
-`cp /users/ianmilligan1/Área\ de\ Trabalho/proghist-text/*.txt ./`
+`cp /users/ianmilligan1/Área\ de\ Trabalho/ProgHist-Text/*.txt ./`
 
 O comando `./` refere-se ao diretório **atual** em que você está. **Este é um comando realmente valioso.**
 
-Por fim, se você quiser excluir um arquivo, por qualquer motivo, o comando é `rm`, ou remove. **Tenha cuidado com o comando `rm`**, pois você não quer excluir arquivos que não pretende. Ao contrário da exclusão dentro da sua interface gráfica, não há lixeira ou opções de desfazer. Por essa razão, se você estiver em dúvida, é recomendado ter cautela ou fazer backups regulares dos seus dados.
+Por fim, se você quiser excluir um arquivo, por qualquer motivo, o comando é `rm`, ou remove. **Tenha cuidado com o comando `rm`**, pois você não quer excluir ficheiros acidentalmente. Ao contrário da exclusão dentro da sua interface gráfica, não há lixeira ou opções de desfazer aqui. Por essa razão, se você estiver em dúvida, é recomendado ter cautela ou fazer backups regulares dos seus dados.
 
-Vá para `proghist-text` e exclua o arquivo original digitando
+Vá para `ProgHist-Text` e exclua o ficheiro original digitando
 
 `rm tolstoy.txt`
 
-Verifique se o arquivo foi removido usando o comando `ls`.
+Verifique se o ficheiro foi removido usando o comando `ls`.
 
-Se você deseja excluir um diretório inteiro, tem duas opções. Você pode usar `rmdir`, o oposto de `mkdir`, para deletar um diretório **vazio**. Para excluir um diretório com ficheiros, você pode usar na área de trabalho:
+Se você deseja excluir um diretório inteiro, tem duas opções. Você pode usar `rmdir`, o oposto de `mkdir`, para deletar um diretório **vazio**. Para excluir um diretório que contém ficheiros, você pode usar, na área de trabalho:
 
-`rm -r proghist-text`
+`rm -r ProgHist-Text`
 
 ## Conclusões
 
-Você pode querer fazer uma pausa no terminal neste momento. Para fazer isso, digite `exit` e você fechará sua sessão.
+Neste momento, você pode querer fazer uma pausa do terminal. Para fazer isso, digite `exit` e sua sessão será fechada.
 
-Há mais comandos para tentar à medida que você se familiariza com a linha de comando. Alguns de nossos outros favoritos são `du`, que é uma maneira de descobrir quanta memória está sendo usada em um diretório ou ficheiro (`du -h` o torna legível por humanos - como com outros comandos). Para aqueles de vocês no macOS ou Linux, `top` fornece uma visão geral de quais processos estão sendo executados (`mem` no Windows) e `touch NOMEDOFICHEIRO` pode criar um ficheiro de texto básico em ambos os sistemas.
+Há mais comandos para experimentar à medida que você se familiariza com a linha de comando. Alguns de nossos outros favoritos são `du`, que é uma maneira de descobrir quanta memória está sendo usada em um diretório ou ficheiro (`du -h` o torna legível por humanos - como com outros comandos). Para aqueles de vocês no macOS ou Linux, `top` fornece uma visão geral de quais processos estão sendo executados (`mem` no Windows) e `touch NOMEDOFICHEIRO` pode criar um ficheiro de texto básico em ambos os sistemas.
 
-A esta altura, esperamos que você tenha uma boa compreensão básica de como se movimentar usando a linha de comando, mover arquivos básicos e fazer pequenas edições aqui e ali. Esta lição de nível iniciante foi projetada para dar a você alguma fluência e confiança básicas. No futuro, você pode querer se envolver com scripts.
+A esta altura, esperamos que você tenha uma compreensão elementar de como se movimentar usando a linha de comando, mover ficheiros simples e fazer pequenas edições aqui e ali. Esta lição de nível iniciante foi projetada para lhe dar alguma fluência e confiança básicas. No futuro, você pode querer se envolver com scripts.
 
-Divirta-se! Antes que perceba, você pode acabar gostando da conveniência e precisão da linha de comando - para determinadas aplicações, pelo menos - muito mais do que a interface gráfica pesada fornecida pelo seu sistema. O seu conjunto de ferramentas acabou de ficar maior.
+Divirta-se! Antes que perceba, você pode acabar gostando da conveniência e precisão da linha de comando - para determinadas aplicações, pelo menos - muito mais do que a interface gráfica pesada fornecida pelo seu sistema. O seu conjunto de ferramentas acaba de se expandir.
 
 ## Reference Guide
 
-Para sua conveniência, aqui estão os comandos que você aprendeu nesta lição:
+Para sua conveniência, aqui estão os comandos que aprendeu nesta lição:
 
 | Command              | What It Does                                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -391,6 +385,6 @@ Para sua conveniência, aqui estão os comandos que você aprendeu nesta lição
 | `rm`                 | Deleta um ficheiro                                                                                                                                     |
 | `vim`                | Abre o editor de documentos `vim`.                                                                                                                     |
 
-[^1]: O macOS é o sistema operacional utilizado em computadores Macintosh, ou Macs. Até 2016, o sistema operacional era conhecido como SO X. Como essa lição originalmente foi escrita em 2014, sua versão em inglês ainda se refere ao SO X. A partir de 2016, o sistema operacional passou a ser conhecido como macOS.
+[^1]: O macOS é o sistema operacional utilizado em computadores Macintosh, ou Macs. Até 2016, o sistema operacional era conhecido como OS X. A partir de 2016, o sistema operacional passou a se chamar macOS. Como essa lição original foi escrita em 2014, o termo utilizado era OS X. Na tradução, o termo foi atualizado para macOS.
 
-[^2]: Nota: Em macOS e Linux, para informar que o espaço entre palavras é um espaço no título do diretório ou ficheiro, você precisa colocar uma barra invertida antes dele. Isso é chamado de 'escapar' o caractere. Você também pode colocar o nome do diretório entre aspas, como em `cd "Área de Trabalho"`.
+[^2]: No macOS e distribuições Linux, para informar que o espaço entre palavras -- ou qualquer outro caractere especial -- deve ser entendido literalmente pelo computador, você precisa colocar uma barra invertida antes dele. Isso é chamado de 'escapar' o caractere. Você também pode colocar o nome do diretório entre aspas, como em `cd "Área de Trabalho"`. Esse é um motivo para evitarmos a utilização de espaços nos nomes de diretórios e ficheiros.
